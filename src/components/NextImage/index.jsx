@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
-import { useState, useCallback, useEffect } from "react";
-import { validateImageUrl, getImageCacheStatus } from "../../utils/imageOptimization";
+import { useState, useCallback, useEffect, useRef } from "react";
+import { sanitizeImageUrl } from "../../utils/imageSanitizer";
 
 const NextImage = ({
   src,
@@ -20,72 +20,64 @@ const NextImage = ({
   onError,
   className = "",
   style = {},
-  timeout = 10000, // 10 second timeout
   ...props
 }) => {
-  // State to track if we've already fallen back to default image
-  const [hasErrored, setHasErrored] = useState(false);
-  const [currentSrc, setCurrentSrc] = useState(() => validateImageUrl(src, defaultImage));
-  const [_isLoading, setIsLoading] = useState(true);
+  // Use refs to prevent infinite loops
+  const hasErroredRef = useRef(false);
+  const timeoutRef = useRef(null);
+  
+  // State to track current image source
+  const [currentSrc, setCurrentSrc] = useState(() => {
+    // Use the sanitizer to validate and clean the URL immediately
+    return sanitizeImageUrl(src, defaultImage);
+  });
 
-  // Check cache status
-  const cacheStatus = getImageCacheStatus(src);
+  const [isError, setIsError] = useState(false);
 
-  // Validate src URL and set timeout
+  // Clean up timeout on unmount
   useEffect(() => {
-    const validatedSrc = validateImageUrl(src, defaultImage);
-    
-    if (!validatedSrc || validatedSrc === defaultImage) {
-      setIsLoading(false);
-      return;
-    }
-
-    // If image has failed before, use default immediately
-    if (cacheStatus.hasFailed) {
-      setHasErrored(true);
-      setCurrentSrc(defaultImage);
-      setIsLoading(false);
-      return;
-    }
-
-    // Reset state when src changes
-    setHasErrored(false);
-    setIsLoading(true);
-    setCurrentSrc(validatedSrc);
-
-    // Set timeout for image loading
-    const timeoutId = setTimeout(() => {
-      console.warn(`Image loading timeout: ${validatedSrc}`);
-      if (!hasErrored) {
-        setHasErrored(true);
-        setCurrentSrc(defaultImage);
-        setIsLoading(false);
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
       }
-    }, timeout);
+    };
+  }, []);
 
-    return () => clearTimeout(timeoutId);
-  }, [src, defaultImage, timeout, hasErrored, cacheStatus.hasFailed]);
+  // Reset state when src prop changes
+  useEffect(() => {
+    // Sanitize the new src URL
+    const sanitizedSrc = sanitizeImageUrl(src, defaultImage);
+    
+    // Only update if different and we haven't errored on this source
+    if (sanitizedSrc !== currentSrc && !hasErroredRef.current) {
+      console.log(`Image URL updated: ${src} -> ${sanitizedSrc}`);
+      setCurrentSrc(sanitizedSrc);
+      setIsError(false);
+      hasErroredRef.current = false;
+    }
+  }, [src, defaultImage, currentSrc]);
 
-  // Handle fallback image on error - PREVENT INFINITE LOOPS
+  // Handle image loading errors - CRITICAL: Prevent infinite loops
   const handleError = useCallback((e) => {
     console.warn(`Image failed to load: ${currentSrc}`);
-    setIsLoading(false);
     
+    // Call original onError if provided
     if (onError) onError(e);
     
-    // Only fallback once to prevent infinite loops
-    if (!hasErrored && currentSrc !== defaultImage) {
+    // CRITICAL: Only fallback ONCE per component instance
+    if (!hasErroredRef.current && currentSrc !== defaultImage) {
       console.log(`Falling back to default image: ${defaultImage}`);
-      setHasErrored(true);
+      hasErroredRef.current = true;
+      setIsError(true);
       setCurrentSrc(defaultImage);
-    } else {
+    } else if (currentSrc === defaultImage) {
       console.error(`Default image also failed: ${defaultImage}`);
+      setIsError(true);
     }
-  }, [currentSrc, defaultImage, hasErrored, onError]);
+  }, [currentSrc, defaultImage, onError]);
 
   // Handle successful image load
-  const _handleLoadingComplete = useCallback((result) => {
-    setIsLoading(false);
+  const handleLoadingComplete = useCallback((result) => {
     if (onLoadingComplete) onLoadingComplete(result);
   }, [onLoadingComplete]);
 
@@ -117,7 +109,7 @@ const NextImage = ({
     fill,
     quality,
     sizes,
-    onLoadingComplete,
+    onLoadingComplete: handleLoadingComplete,
     onError: handleError,
     className,
     style: {
@@ -142,23 +134,56 @@ const NextImage = ({
   }
 
   // If both original and default images failed, show a simple fallback
-  if (hasErrored && currentSrc === defaultImage) {
+  if (isError && currentSrc === defaultImage) {
     return (
       <div 
         className={`image-fallback ${className}`}
         style={{
           width: fill ? '100%' : finalWidth,
           height: fill ? '100%' : finalHeight,
-          backgroundColor: '#f0f0f0',
+          backgroundColor: '#f5f5f5',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           color: '#999',
           fontSize: '12px',
-          border: '1px solid #ddd',
+          border: '1px solid #e0e0e0',
           borderRadius: '4px',
           ...style
         }}
+        {...props}
+      >
+        {alt || 'Image not available'}
+      </div>
+    );
+  }
+
+  // CRITICAL: Validate the current source before rendering Image component
+  if (!currentSrc || currentSrc === defaultImage) {
+    // Check if we should show the default image or fallback div
+    if (currentSrc === defaultImage && !isError) {
+      // Render the default image
+      return <Image {...imageProps} />;
+    }
+    
+    // Show fallback div if default image also failed
+    return (
+      <div 
+        className={`image-fallback ${className}`}
+        style={{
+          width: fill ? '100%' : finalWidth,
+          height: fill ? '100%' : finalHeight,
+          backgroundColor: '#f5f5f5',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#999',
+          fontSize: '12px',
+          border: '1px solid #e0e0e0',
+          borderRadius: '4px',
+          ...style
+        }}
+        {...props}
       >
         {alt || 'Image not available'}
       </div>

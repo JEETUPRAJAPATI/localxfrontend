@@ -70,7 +70,7 @@ const homeSelectorData = createSelector(
     countries_DATA: home?.countries || [],
     dashboardContent_DATA: sanitizeHTML(home?.dashboardContent || ""),
     pageSettings_DATA: page?.pageSettings || {},
-    logo_DATA: headSeo?.image || "/images/logo.png",
+    logo_DATA: "/images/logo.png", // Always use local static logo
   })
 );
 const CardHeaderToggle = memo(
@@ -215,7 +215,7 @@ const Home = ({ initialData = null }) => {
   // Redux Stores (Memoized)
   //:=========================
   // Extracting multiple state properties with a single selector
-  const { countries_DATA, dashboardContent_DATA, topNotice_DATA, logo_DATA } =
+  const { countries_DATA, dashboardContent_DATA, topNotice_DATA } =
     useSelector(homeSelectorData);
   
   // Use initialData as fallback if Redux state is empty
@@ -231,7 +231,7 @@ const Home = ({ initialData = null }) => {
     : getCountriesArray(initialData?.countries);
   const finalDashboardContent = dashboardContent_DATA || initialData?.dashboardContent || "";
   const finalTopNotice = topNotice_DATA || initialData?.topNotice || "";
-  const finalLogo = logo_DATA || initialData?.headLogo || "/images/logo.png";
+  const finalLogo = "/images/logo.png"; // Always use local static logo
   
   //:========================================
   // States Declaration

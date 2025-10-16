@@ -9,8 +9,8 @@ import styles from "@/styles/home.module.scss"; // Ensure styles are imported
 
 const homeSelectorData = createSelector(
   (state) => state.headSeo,
-  (headSeo) => ({
-    logo_DATA: headSeo?.image || "/images/logo.png",
+  (_headSeo) => ({
+    logo_DATA: "/images/logo.png", // Always use local static logo
   })
 );
 
