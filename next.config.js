@@ -190,36 +190,13 @@ module.exports = withBundleAnalyzer({
 
         // Handle browser globals for server-side rendering
         if (isServer) {
+            // Simple approach - just add the polyfill
             config.resolve.fallback = {
                 ...config.resolve.fallback,
                 fs: false,
                 net: false,
                 tls: false,
             };
-            
-            // Add node polyfills to prevent 'self is not defined' errors
-            config.node = {
-                ...config.node,
-                global: true,
-            };
-            
-            // More aggressive polyfill approach
-            const webpack = require('webpack');
-            config.plugins.push(
-                new webpack.DefinePlugin({
-                    'typeof window': '"undefined"',
-                    'typeof document': '"undefined"',
-                    'typeof self': '"undefined"',
-                    'typeof global': '"object"',
-                    'global.self': 'global',
-                    self: 'global',
-                    window: 'undefined',
-                    document: 'undefined',
-                }),
-                new webpack.ProvidePlugin({
-                    global: 'global',
-                })
-            );
         }
 
         // Tree shaking optimization

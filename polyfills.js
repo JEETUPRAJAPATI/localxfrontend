@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // Global polyfills for server-side rendering
 // This file prevents "self is not defined" errors in Node.js environment
 
