@@ -219,7 +219,16 @@ const Home = ({ initialData = null }) => {
     useSelector(homeSelectorData);
   
   // Use initialData as fallback if Redux state is empty
-  const finalCountriesData = countries_DATA?.length > 0 ? countries_DATA : (initialData?.countries || []);
+  const getCountriesArray = (countries) => {
+    if (!countries) return [];
+    if (Array.isArray(countries)) return countries;
+    if (countries.list && Array.isArray(countries.list)) return countries.list;
+    return [];
+  };
+  
+  const finalCountriesData = countries_DATA?.length > 0 
+    ? countries_DATA 
+    : getCountriesArray(initialData?.countries);
   const finalDashboardContent = dashboardContent_DATA || initialData?.dashboardContent || "";
   const finalTopNotice = topNotice_DATA || initialData?.topNotice || "";
   const finalLogo = logo_DATA || initialData?.headLogo || "/images/logo.png";

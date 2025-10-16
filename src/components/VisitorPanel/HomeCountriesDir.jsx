@@ -27,12 +27,14 @@ const HomeCountriesDir = memo(() => {
     useSelector(homeSelectorData);
   //:========================================
   const countryActiveKeys = useMemo(() => {
-    return isDesktop ? countries_DATA.map((country) => `${country.id}`) : [];
+    const validCountries = Array.isArray(countries_DATA) ? countries_DATA : [];
+    return isDesktop ? validCountries.map((country) => `${country.id}`) : [];
   }, [countries_DATA, isDesktop]);
   const cityActiveKeys = useMemo(() => {
+    const validCountries = Array.isArray(countries_DATA) ? countries_DATA : [];
     return isDesktop
-      ? countries_DATA.flatMap((country) =>
-          country.cities.map((city) => `${city.id}`)
+      ? validCountries.flatMap((country) =>
+          Array.isArray(country.cities) ? country.cities.map((city) => `${city.id}`) : []
         )
       : [];
   }, [countries_DATA, isDesktop]);
@@ -133,7 +135,8 @@ const HomeCountriesDir = memo(() => {
         });
 
         // Find the country to update
-        const updatedCountries = countries_DATA.map((country) => {
+        const validCountries = Array.isArray(countries_DATA) ? countries_DATA : [];
+        const updatedCountries = validCountries.map((country) => {
           if (Number(country.id) === Number(countryId)) {
             return {
               ...country,
@@ -175,11 +178,12 @@ const HomeCountriesDir = memo(() => {
         });
 
         // Find the country and city to update
-        const updatedCountries = countries_DATA.map((country) => {
+        const validCountries = Array.isArray(countries_DATA) ? countries_DATA : [];
+        const updatedCountries = validCountries.map((country) => {
           if (Number(country.id) === Number(countryId)) {
             return {
               ...country,
-              cities: country.cities.map((city) => {
+              cities: Array.isArray(country.cities) ? country.cities.map((city) => {
                 if (Number(city.id) === Number(cityId)) {
                   return {
                     ...city,
@@ -227,7 +231,7 @@ const HomeCountriesDir = memo(() => {
 
   return (
     <>
-      {countries_DATA.map((countryData) => {
+      {Array.isArray(countries_DATA) && countries_DATA.map((countryData) => {
         const isCountryExpanded = defaultCountryActiveKeys.includes(
           `${countryData.id}`
         );

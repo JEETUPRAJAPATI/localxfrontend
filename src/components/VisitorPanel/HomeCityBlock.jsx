@@ -28,7 +28,7 @@ const CityBlock = memo(
       {isCityExpanded && (
         <div className={styles.subcitiesContainer}>
           <ListGroup className={styles.listGroup}>
-            {cityData.subcities.map((suburb) => (
+            {Array.isArray(cityData.subcities) && cityData.subcities.map((suburb) => (
               <SubCityBlock
                 key={suburb.id}
                 suburb={suburb}
