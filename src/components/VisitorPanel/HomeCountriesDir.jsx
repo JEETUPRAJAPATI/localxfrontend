@@ -193,7 +193,7 @@ const HomeCountriesDir = memo(() => {
                   };
                 }
                 return city;
-              }),
+              }) : [],
             };
           }
           return country;
