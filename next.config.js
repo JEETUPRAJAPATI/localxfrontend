@@ -1,5 +1,9 @@
 /*global require*/
 /*eslint no-undef: "error"*/
+
+// Load polyfills first for server environment
+require('./polyfills');
+
 const { ROUTES } = require('./src/utils/constant');
 const path = require('path');
 
@@ -199,7 +203,7 @@ module.exports = withBundleAnalyzer({
                 global: true,
             };
             
-            // Polyfill browser globals for server
+            // More aggressive polyfill approach
             const webpack = require('webpack');
             config.plugins.push(
                 new webpack.DefinePlugin({
@@ -207,9 +211,13 @@ module.exports = withBundleAnalyzer({
                     'typeof document': '"undefined"',
                     'typeof self': '"undefined"',
                     'typeof global': '"object"',
+                    'global.self': 'global',
                     self: 'global',
                     window: 'undefined',
                     document: 'undefined',
+                }),
+                new webpack.ProvidePlugin({
+                    global: 'global',
                 })
             );
         }

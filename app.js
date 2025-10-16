@@ -3,6 +3,9 @@
 require('dotenv').config();
 const fs = require('fs');
 const util = require('util');
+// Load polyfills first
+require('./polyfills');
+
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
