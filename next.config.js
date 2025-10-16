@@ -45,7 +45,20 @@ module.exports = withBundleAnalyzer({
         },
         images: {
             unoptimized: true,
-            domains: ["localhost", "api.localxlist.net"],
+            remotePatterns: [
+                {
+                    protocol: 'https',
+                    hostname: 'api.localxlist.net',
+                },
+                {
+                    protocol: 'https',
+                    hostname: 'apilocalxlist.shrawantravels.com',
+                },
+                {
+                    protocol: 'http',
+                    hostname: 'localhost',
+                },
+            ],
             deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
             imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
             minimumCacheTTL: 60,
@@ -295,7 +308,20 @@ module.exports = withBundleAnalyzer({
     // Images configuration (only when not exporting)
     ...(!process.env.NEXT_EXPORT && {
         images: {
-            domains: ["localhost", "api.localxlist.net"],
+            remotePatterns: [
+                {
+                    protocol: 'https',
+                    hostname: 'api.localxlist.net',
+                },
+                {
+                    protocol: 'https',
+                    hostname: 'apilocalxlist.shrawantravels.com',
+                },
+                {
+                    protocol: 'http',
+                    hostname: 'localhost',
+                },
+            ],
             deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
             imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
             minimumCacheTTL: 60,

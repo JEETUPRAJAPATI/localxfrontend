@@ -8,7 +8,7 @@ const BASE_API_URI = APP_CONFIG[NODE_ENV]?.API_URI || '';
 // Create a server-side API client for getStaticProps
 const serverApiClient = axios.create({
   baseURL: BASE_API_URI,
-  timeout: 2000, // Reduced to 2 seconds to prevent blocking
+  timeout: 800, // Reduced to 800ms for ultra-fast failure
 });
 
 // Request interceptor for server-side requests
@@ -32,9 +32,22 @@ serverApiClient.interceptors.request.use(
 
 // Response interceptor for server-side requests
 serverApiClient.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    console.log(`✅ API Success: ${response.config.method?.toUpperCase()} ${response.config.url} - Status: ${response.status}`);
+    return response;
+  },
   (error) => {
-    console.error('Server API error:', error.message);
+    const url = error.config?.url || 'unknown';
+    const method = error.config?.method?.toUpperCase() || 'GET';
+    
+    if (error.code === 'ECONNABORTED') {
+      console.warn(`⏰ API Timeout: ${method} ${url} - Using fallback data`);
+    } else if (error.response) {
+      console.warn(`❌ API Error: ${method} ${url} - Status: ${error.response.status} - Using fallback data`);
+    } else {
+      console.warn(`🔌 API Connection Error: ${method} ${url} - ${error.message} - Using fallback data`);
+    }
+    
     return Promise.reject(error);
   },
 );
