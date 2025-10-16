@@ -28345,3 +28345,103 @@
 [2025-10-15T08:51:26.949Z] INFO: Request: GET /_next/data/T-CmvWoPky1E8Zpq05zPb/s/asia/thailand/thailand.json?country=asia&city=thailand&subCity=thailand
 [2025-10-15T08:51:26.965Z] INFO: Request: GET /_next/data/T-CmvWoPky1E8Zpq05zPb/s/latin-america/costa-rica/costa-rica.json?country=latin-america&city=costa-rica&subCity=costa-rica
 [2025-10-15T08:58:36.288Z] INFO: Request: GET /_next/data/T-CmvWoPky1E8Zpq05zPb/index.json
+[2025-10-16T05:29:51.238Z] INFO: === Application Starting ===
+[2025-10-16T05:29:51.240Z] INFO: NODE_ENV: production
+[2025-10-16T05:29:51.240Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T05:29:51.240Z] INFO: PORT: 3001
+[2025-10-16T05:29:51.241Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T05:29:51.241Z] INFO: Node version: v20.19.3
+[2025-10-16T05:29:51.242Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T05:29:55.638Z] INFO: Next.js app prepared successfully
+[2025-10-16T05:29:55.648Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T05:54:22.056Z] INFO: === Application Starting ===
+[2025-10-16T05:54:22.058Z] INFO: NODE_ENV: production
+[2025-10-16T05:54:22.058Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T05:54:22.058Z] INFO: PORT: 3001
+[2025-10-16T05:54:22.058Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T05:54:22.058Z] INFO: Node version: v20.19.3
+[2025-10-16T05:54:22.058Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T05:58:18.138Z] INFO: === Application Starting ===
+[2025-10-16T05:58:18.139Z] INFO: NODE_ENV: production
+[2025-10-16T05:58:18.140Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T05:58:18.140Z] INFO: PORT: 3001
+[2025-10-16T05:58:18.140Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T05:58:18.140Z] INFO: Node version: v20.19.3
+[2025-10-16T05:58:18.140Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T05:58:24.017Z] INFO: Next.js app prepared successfully
+[2025-10-16T05:58:24.148Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T05:59:09.960Z] INFO: === Application Starting ===
+[2025-10-16T05:59:09.962Z] INFO: NODE_ENV: production
+[2025-10-16T05:59:09.963Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T05:59:09.963Z] INFO: PORT: 3001
+[2025-10-16T05:59:09.963Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T05:59:09.964Z] INFO: Node version: v20.19.3
+[2025-10-16T05:59:09.964Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T05:59:11.428Z] INFO: Next.js app prepared successfully
+[2025-10-16T05:59:11.440Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T05:59:33.307Z] INFO: Request: GET /?id=5bcf5dd2-58c1-4e61-81d3-ec910dd3bdf5&vscodeBrowserReqId=1760594372732
+[2025-10-16T06:02:03.597Z] INFO: Request: GET /api/v1/home/partners
+[2025-10-16T06:02:14.754Z] INFO: Request: GET /
+[2025-10-16T06:05:15.479Z] INFO: === Application Starting ===
+[2025-10-16T06:05:15.481Z] INFO: NODE_ENV: production
+[2025-10-16T06:05:15.481Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T06:05:15.481Z] INFO: PORT: 3001
+[2025-10-16T06:05:15.481Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T06:05:15.481Z] INFO: Node version: v20.19.3
+[2025-10-16T06:05:15.482Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T06:05:27.341Z] INFO: Next.js app prepared successfully
+[2025-10-16T06:05:27.503Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T06:05:45.878Z] INFO: === Application Starting ===
+[2025-10-16T06:05:45.881Z] INFO: NODE_ENV: production
+[2025-10-16T06:05:45.884Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T06:05:45.885Z] INFO: PORT: 3001
+[2025-10-16T06:05:45.887Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T06:05:45.889Z] INFO: Node version: v20.19.3
+[2025-10-16T06:05:45.889Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T06:05:50.060Z] INFO: Next.js app prepared successfully
+[2025-10-16T06:05:50.065Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T06:06:03.807Z] INFO: Request: GET /api/v1/home/partners
+[2025-10-16T06:12:15.563Z] INFO: === Application Starting ===
+[2025-10-16T06:12:15.569Z] INFO: NODE_ENV: production
+[2025-10-16T06:12:15.569Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T06:12:15.570Z] INFO: PORT: 3001
+[2025-10-16T06:12:15.570Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T06:12:15.570Z] INFO: Node version: v20.19.3
+[2025-10-16T06:12:15.571Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T06:12:23.218Z] INFO: Next.js app prepared successfully
+[2025-10-16T06:12:23.230Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T06:13:25.529Z] INFO: === Application Starting ===
+[2025-10-16T06:13:25.533Z] INFO: NODE_ENV: production
+[2025-10-16T06:13:25.533Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T06:13:25.534Z] INFO: PORT: 3001
+[2025-10-16T06:13:25.534Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T06:13:25.535Z] INFO: Node version: v20.19.3
+[2025-10-16T06:13:25.536Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T06:13:31.590Z] INFO: Next.js app prepared successfully
+[2025-10-16T06:13:31.595Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T06:13:58.473Z] INFO: === Application Starting ===
+[2025-10-16T06:13:58.475Z] INFO: NODE_ENV: production
+[2025-10-16T06:13:58.475Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T06:13:58.475Z] INFO: PORT: 3001
+[2025-10-16T06:13:58.475Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T06:13:58.476Z] INFO: Node version: v20.19.3
+[2025-10-16T06:13:58.476Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T06:14:07.879Z] INFO: Next.js app prepared successfully
+[2025-10-16T06:15:42.939Z] INFO: === Application Starting ===
+[2025-10-16T06:15:42.942Z] INFO: NODE_ENV: production
+[2025-10-16T06:15:42.942Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T06:15:42.943Z] INFO: PORT: 3001
+[2025-10-16T06:15:42.943Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T06:15:42.944Z] INFO: Node version: v20.19.3
+[2025-10-16T06:15:42.945Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T06:15:48.334Z] INFO: Next.js app prepared successfully
+[2025-10-16T06:15:48.342Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T06:24:56.685Z] INFO: === Application Starting ===
+[2025-10-16T06:24:56.688Z] INFO: NODE_ENV: production
+[2025-10-16T06:24:56.689Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T06:24:56.689Z] INFO: PORT: 3001
+[2025-10-16T06:24:56.690Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T06:24:56.690Z] INFO: Node version: v20.19.3
+[2025-10-16T06:24:56.692Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T06:25:05.384Z] INFO: Next.js app prepared successfully
+[2025-10-16T06:25:05.392Z] INFO: > Server ready on http://0.0.0.0:3001

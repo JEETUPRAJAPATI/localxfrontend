@@ -1889,3 +1889,12 @@
   },
   status: 500
 }
+[2025-10-16T05:54:31.010Z] ERROR: Failed to prepare Next.js app: Error: Could not find a production build in the '.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
+    at setupFsCheck (D:\inventory\TechiziBuilder\Utkrash\lxl-frontend\node_modules\next\dist\server\lib\router-utils\filesystem.js:148:41)
+    at async initialize (D:\inventory\TechiziBuilder\Utkrash\lxl-frontend\node_modules\next\dist\server\lib\router-server.js:109:23)
+    at async NextCustomServer.prepare (D:\inventory\TechiziBuilder\Utkrash\lxl-frontend\node_modules\next\dist\server\next.js:276:28)
+[2025-10-16T06:14:07.889Z] ERROR: Uncaught Exception: Error: listen EADDRINUSE: address already in use 0.0.0.0:3001
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    at listenInCluster (node:net:1965:12)
+    at doListen (node:net:2139:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
