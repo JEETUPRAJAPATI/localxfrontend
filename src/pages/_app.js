@@ -15,9 +15,11 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 
-// Lazy load non-critical components
+// Lazy load non-critical components - client-side only
 const LazyStyleLoader = lazy(() => import('@/components/LazyStyleLoader'));
-const PerformanceMonitor = lazy(() => import('@/components/PerformanceOptimizer').then(mod => ({ default: mod.PerformanceMonitor })));
+const PerformanceMonitor = typeof window !== 'undefined' 
+  ? lazy(() => import('@/components/PerformanceOptimizer').then(mod => ({ default: mod.PerformanceMonitor })))
+  : () => null;
 
 // Minimal loading component
 const MinimalLoader = () => (
@@ -83,10 +85,12 @@ function MyApp({ Component, ...rest }) {
                   <meta name="color-scheme" content="light dark" />
                 </Head>
                 <Component {...props.pageProps} />
-                <Suspense fallback={null}>
-                  <LazyStyleLoader />
-                  <PerformanceMonitor />
-                </Suspense>
+                {typeof window !== 'undefined' && (
+                  <Suspense fallback={null}>
+                    <LazyStyleLoader />
+                    <PerformanceMonitor />
+                  </Suspense>
+                )}
               </Suspense>
             </ErrorBoundary>
           </Provider>
@@ -96,9 +100,9 @@ function MyApp({ Component, ...rest }) {
   );
 }
 
-// Web Vitals reporting - defer to avoid blocking
+// Web Vitals reporting - client-side only, defer to avoid blocking
 export function reportWebVitals(metric) {
-  if (process.env.NODE_ENV === 'production') {
+  if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
     // Log or send to analytics - non-blocking
     setTimeout(() => console.log(metric), 0);
   }

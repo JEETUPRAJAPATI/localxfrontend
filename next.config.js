@@ -184,6 +184,36 @@ module.exports = withBundleAnalyzer({
             '@': path.resolve(__dirname, 'src'),
         };
 
+        // Handle browser globals for server-side rendering
+        if (isServer) {
+            config.resolve.fallback = {
+                ...config.resolve.fallback,
+                fs: false,
+                net: false,
+                tls: false,
+            };
+            
+            // Add node polyfills to prevent 'self is not defined' errors
+            config.node = {
+                ...config.node,
+                global: true,
+            };
+            
+            // Polyfill browser globals for server
+            const webpack = require('webpack');
+            config.plugins.push(
+                new webpack.DefinePlugin({
+                    'typeof window': '"undefined"',
+                    'typeof document': '"undefined"',
+                    'typeof self': '"undefined"',
+                    'typeof global': '"object"',
+                    self: 'global',
+                    window: 'undefined',
+                    document: 'undefined',
+                })
+            );
+        }
+
         // Tree shaking optimization
         config.optimization.usedExports = true;
         config.optimization.sideEffects = false;
