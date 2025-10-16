@@ -1,0 +1,104 @@
+.fixedHeader {
+  box-shadow: 0 1px 8px #ccc;
+  background-color: #fff;
+  padding: 0;
+
+  .container-fluid {
+    padding: 0;
+
+
+    .toggle_top_nav {
+      font-size: 13px;
+      padding: 5px 10px;
+      margin-right: 0 !important;
+    }
+
+    .toggle_top_nav:focus {
+      box-shadow: unset;
+    }
+
+    .navbar-brand {
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      min-height: 50px;
+
+      .brand-logo {
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .right-menu {
+      .btn-primary {
+        padding: 6px 15px;
+        border-radius: 3px;
+        box-shadow: 0 1px 4px rgb(51 51 51 / 53%);
+        line-height: 16px;
+        font-size: 16px;
+        margin: 5px 0;
+        border: 1px solid #ff8f00;
+        color: #fff;
+        text-shadow: 0.5px 0.5px rgb(51 51 51 / 47%);
+        transition: all 0.3s ease-in-out;
+        background: #34568a;
+        /* Background color */
+      }
+    }
+
+    // Media Query
+
+    /* Small devices (Mobile Phones) */
+    @media (max-width: 480px) {
+
+      /* Example: iPhone SE, Android phones */
+      .right-menu {
+        display: none !important;
+      }
+    }
+
+    /* Medium devices (Portrait Tablets and Large Phones) */
+    @media (width >=481px) and (width <=768px) {
+
+      /* Example: iPhone 11, Galaxy S20 */
+      .right-menu {
+        display: none !important;
+      }
+    }
+
+  }
+}
+
+
+.fixedCanvasSidebar {
+  width: 250px !important;
+  background: #eee;
+
+  .offcanvas-link {
+    font-weight: bold;
+    margin: 10px 0;
+    /* Vertical spacing */
+    color: #000;
+    text-decoration: none;
+    /* Remove underline */
+  }
+
+  .offcanvas-link:hover {
+    text-decoration: none;
+    /* Keep underline off on hover */
+  }
+
+  .divider {
+    width: 100%;
+    /* Full width */
+    height: 1px;
+    /* Divider height */
+    background-color: #ddd;
+    /* Divider color */
+    margin: 5px 0;
+    /* Spacing */
+  }
+}

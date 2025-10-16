@@ -1,0 +1,28 @@
+.image-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: inherit; /* Adjust based on your layout */
+  height: inherit;
+}
+
+.image-wrapper img {
+  // width: 100%;
+  // height: 100%;
+  pointer-events: none; /* Prevent interactions directly with the image */
+  user-select: none; /* Disable text selection */
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* Fully transparent by default */
+  z-index: 1; /* Above the image */
+}
+
+.image-wrapper:hover .image-overlay {
+  background: rgba(0, 0, 0, 0.2); /* Example: Add overlay effect on hover */
+}

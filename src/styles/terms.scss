@@ -1,0 +1,38 @@
+.wrapper {
+  margin-top: 60px;
+  min-height: calc(100vh - 153px);
+
+  .terms {
+    .title {
+      font-weight: 500;
+      font-size: 24px;
+    }
+
+    .terms_conditions {
+      padding-left: 0;
+      text-align: justify;
+    }
+
+    .terms_conditions li {
+      padding: 25px 10px;
+      border-bottom: 1px solid #495a75;
+      display: block;
+      width: 100%;
+    }
+
+    .terms_conditions li span {
+      display: inline-block;
+      text-align: center;
+      background: #495a75;
+      border-radius: 50%;
+      font-weight: bold;
+      width: 28px;
+      line-height: 28px;
+      color: #fff;
+      margin: 10px;
+      box-shadow: 0 1px 6px rgb(0 0 0 / 50%);
+      border: 1px solid #fff;
+      margin-left: 0;
+    }
+  }
+}

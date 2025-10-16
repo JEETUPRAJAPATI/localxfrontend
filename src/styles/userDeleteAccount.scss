@@ -1,0 +1,80 @@
+.userDeleteAccount {
+  margin: 70px 0 90px 0;
+
+  .cnt {
+    box-shadow: 0 1px 10px rgb(60 60 60 / 40%);
+    background: #fff;
+    border-radius: 4px;
+    padding: 2px;
+    min-width: 98%;
+
+    .panel-heading {
+      border-radius: 3px 3px 0 0;
+      border-bottom: 0.5px solid rgb(30 30 30 / 8%);
+      padding: 10px 15px;
+      background: #c2cad6;
+      font-size: 20px;
+      margin: 0;
+
+      h3 {
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+    }
+
+    .panel-body {
+      margin-top: -1px;
+      margin-bottom: -1px;
+      padding: 15px;
+      overflow: auto;
+      position: relative;
+      box-sizing: border-box;
+      text-decoration: none;
+
+      .notice-msg {
+        border: 2px dashed #FF0000;
+        border-radius: 7px;
+        padding: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+
+        p {
+          margin: 0 0 10px;
+        }
+      }
+
+      .btn {
+        text-shadow: 0.5px 0.5px #3337;
+        transition: all 0.3s ease-in-out;
+        padding: 6px 15px;
+        border-radius: 3px;
+        box-shadow: 0 1px 4px #3338;
+        line-height: 16px;
+        font-size: 16px;
+      }
+
+      .btn-info {
+        background: #00897B;
+        border: 1px solid #00897B;
+        color: #fff;
+      }
+
+      .btn-primary {
+        background: #317589;
+        border: 1px solid #317589;
+        color: #fff;
+      }
+    }
+
+    .panel-footer {
+      border-radius: 0 0 3px 3px;
+      border-top: 0.5px solid rgb(30 30 30 / 8%);
+      padding: 10px 15px;
+      background: #c2cad6;
+    }
+
+
+
+  }
+
+}

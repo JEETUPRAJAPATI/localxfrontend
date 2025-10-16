@@ -1,0 +1,131 @@
+/* Optimized styles for reduced DOM and better performance */
+
+.subcities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin: 1rem 0;
+}
+
+.subcity-link {
+  display: block;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #495057;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+}
+
+.subcity-link:hover {
+  background: #e9ecef;
+  color: #212529;
+  text-decoration: none;
+}
+
+.subcity-title {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.view-more-link {
+  display: block;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  grid-column: 1 / -1;
+}
+
+.view-more-link:hover {
+  background: #0056b3;
+  color: white;
+  text-decoration: none;
+}
+
+.view-more-cities {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.view-more-cities a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #6c757d;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-more-cities a:hover {
+  background: #545b62;
+  color: white;
+  text-decoration: none;
+}
+
+.view-more-countries {
+  margin-top: 2rem;
+  border: 2px dashed #dee2e6;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.country-quick-link {
+  display: block;
+  padding: 8px 12px;
+  background: #e9ecef;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #495057;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.country-quick-link:hover {
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+}
+
+/* Performance optimizations */
+.cities-container {
+  contain: layout style;
+}
+
+.city-card {
+  contain: layout style;
+}
+
+/* Reduce layout complexity */
+@media (max-width: 768px) {
+  .subcities-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 6px;
+  }
+  
+  .countries-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+/* Critical rendering optimizations */
+.performance-critical {
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+
+.lazy-render {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
+}

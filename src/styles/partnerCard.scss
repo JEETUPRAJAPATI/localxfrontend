@@ -1,0 +1,77 @@
+.partner-card {
+  background: #fff;
+  border-radius: 0;
+
+  .card-header {
+    background: #34568a;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 2px 2px #ddd;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+    border-radius: 0;
+  }
+
+  .card-header a {
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  .card-body {
+    padding: 5px;
+    border-radius: 0;
+  }
+
+  .site_block {
+    padding: 8px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+  }
+
+  .site_serial_no {
+    text-align: right;
+    margin-right: 10px;
+    min-width: 30px;
+  }
+
+  .partner-pic {
+    display: flex;
+    width: 18px;
+    height: 18px;
+
+    .site_icon {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+
+
+  .site__link {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .search__icon {
+    display: none; // Hide the search icon by default
+  }
+
+  .site_block:hover .search__icon {
+    display: block; // Show the search icon when the row is hovered
+  }
+
+  @media (max-width: 1024px) {
+    .search__icon {
+      display: block; // Show the search icon when the row is hovered
+    }
+  }
+}

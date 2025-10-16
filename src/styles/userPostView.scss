@@ -1,0 +1,71 @@
+.userPostView {
+  margin: 70px 0 90px 0;
+
+  .cnt {
+    box-shadow: 0 1px 10px rgb(60 60 60 / 40%);
+    background: #fff;
+    border-radius: 4px;
+    padding: 2px;
+    min-width: 98%;
+
+    .panel-heading {
+      border-radius: 3px 3px 0 0;
+      border-bottom: 0.5px solid rgb(30 30 30 / 8%);
+      padding: 10px 15px;
+      background: #c2cad6;
+      font-size: 20px;
+      margin: 0;
+
+      h3 {
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+    }
+
+    .panel-body {
+      margin-top: -1px;
+      margin-bottom: -1px;
+      padding: 15px;
+      overflow: auto;
+      position: relative;
+      box-sizing: border-box;
+      text-decoration: none;
+
+      .postViewWrapper {
+        max-width: 700px;
+        clear: both;
+        margin: auto;
+
+        .direction-btn .btn {
+          color: #405e8f;
+          background:none;
+          border: none;
+          padding: 0 10px;
+        }
+  
+        .post-footer {
+          border-top: 1px solid #eee;
+          .post-date {
+            border-bottom: 1px dotted #504f4f;
+            cursor: pointer;
+          }
+        }
+      
+        .post-footer .ft, .ft .btn-link {
+          display: inline-flex;
+          color: #4e4e4e;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .panel-footer {
+      border-radius: 0 0 3px 3px;
+      border-top: 0.5px solid rgb(30 30 30 / 8%);
+      padding: 10px 15px;
+      background: #c2cad6;
+    }
+
+  }
+
+}

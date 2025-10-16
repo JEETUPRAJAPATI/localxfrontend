@@ -1,0 +1,89 @@
+.partnerAdd {
+  .partnerAdd-cnt {
+    box-shadow: 0 1px 10px rgb(60 60 60 / 40%);
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 70px;
+    padding: 15px;
+
+    .breadcrumb-area {
+      border: 1px solid #eee;
+      background: #eee;
+      border-radius: 3px;
+      color: #444;
+      padding: 5px 10px;
+      .breadcrumb {
+        margin: 0;
+        .breadcrumb-item {
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .partnerAddForm {
+      .btn {
+        text-shadow: 0.5px 0.5px #3337;
+        transition: all 0.3s ease-in-out;
+        padding: 6px 15px;
+        border-radius: 3px;
+        box-shadow: 0 1px 4px #3338;
+        line-height: 16px;
+        font-size: 16px;
+      }
+
+      .btn-primary {
+        background: #34568a;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+
+        .form-label {
+          margin-bottom: 2px;
+          color: #333;
+          font-weight: bold;
+        }
+
+        .form-control {
+          font-size: 14px;
+          background-color: #fff;
+          color: #555;
+          border: 1px solid #ccc;
+        }
+
+        .form-control[readonly] {
+          background-color: #eee;
+        }
+      }
+
+      .info-box {
+        padding: 10px 20px;
+        background: #f9f9f9;
+        border-radius: 5px;
+        border: 1px solid #bdbdbd;
+
+        .code-wrapper {
+          background-color: rgb(239 242 246);
+          border: 1px solid #ced4da;
+          border-radius: 5px;
+          padding: 10px;
+          position: relative;
+          font-family: monospace;
+          white-space: pre-wrap;
+
+          .icon {
+            cursor: pointer;
+            margin-left: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}

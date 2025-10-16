@@ -1,0 +1,68 @@
+.customMultiSelectDropdown {
+  width: 100%;
+
+  .dropdown-toggle-fullwidth {
+    width: 100% !important;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 2rem; // extra space for caret
+    position: relative;
+
+    // Follow Space and Form Control CSS
+    font-size: 14px;
+    background-color: #fff;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--bs-border-radius-sm);
+  }
+
+  .dropdown-toggle::after {
+    position: absolute;
+    right: 0.75rem; // adjust as needed
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+
+      .form-check-label {
+        cursor: pointer;
+      }
+
+      // Hover Effect
+      &:hover {
+        background-color: #f0f0f5; // light grey-blue background
+        color: #000; // text color on hover
+      }
+
+      // Selected Effect (when checkbox is checked)
+      &.selected-item {
+        background-color: #007bff; // Bootstrap primary blue
+        color: #fff; // white text
+      }
+    }
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input[type='checkbox'] {
+      margin-right: 8px;
+    }
+  }
+}

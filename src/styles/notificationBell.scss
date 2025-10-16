@@ -1,0 +1,123 @@
+.user-notification-bell {
+  color: #333;
+  font-weight: bold;
+  font-size: 25px;
+  transition: all 0.3s ease-in-out;
+
+  .dropdown-toggle::after {
+    content: unset;
+  }
+
+  .notification-dropdown {
+    background: #fff;
+    width: 400px;
+    font-size: 15px;
+
+    .notification-items {
+      max-height: 60vh;
+      /* Set max height as a percentage of viewport height */
+      overflow-y: auto;
+      padding-right: 8px;
+
+      scrollbar-width: thin;
+      scrollbar-color: #888 #f1f1f1;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+      }
+
+      .notification-description {
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .dropdown-item {
+      overflow: hidden;
+      white-space: normal;
+      word-break: break-word;
+
+      &:active,
+      &:focus {
+        color: unset !important;
+        background-color: unset !important;
+      }
+    }
+
+    .dropdown-item.active {
+      background-color: #f2f2f3;
+      color: #333333;
+    }
+
+    .image-container {
+      flex: 0 0 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-container {
+      flex: 1;
+      overflow-wrap: break-word;
+    }
+  }
+
+  .badge {
+    font-size: 13px;
+    top: 5px;
+  }
+
+  /* Extra Small Devices (Phones, 600px and down) */
+  @media (max-width: 600px) {
+
+    /* Styles for extra small devices */
+    .notification-dropdown {
+      left: calc(100vw - 575px);
+      width: 315px;
+    }
+  }
+
+  /* Small Devices (Tablets, 601px to 768px) */
+  @media (min-width: 601px) and (max-width: 768px) {
+    /* Styles for small devices */
+  }
+
+  /* Medium Devices (Desktops, 769px to 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    /* Styles for medium devices */
+  }
+
+  /* Large Devices (Desktops, 1025px to 1200px) */
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    /* Styles for large devices */
+  }
+
+  /* Extra Large Devices (Large Desktops, 1201px and up) */
+  @media (min-width: 1201px) {
+    /* Styles for extra large devices */
+  }
+
+  /* Landscape Orientation (for phones and tablets) */
+  @media (orientation: landscape) {
+    /* Styles for landscape orientation */
+  }
+
+  /* Portrait Orientation (for phones and tablets) */
+  @media (orientation: portrait) {
+    /* Styles for portrait orientation */
+  }
+}

@@ -1,0 +1,54 @@
+// Step 1: Use Bootstrap and theme variables
+@use "bootstrap" as *;
+
+@use 'theme-dark' as *;
+@use 'theme-light' as *;
+
+// Critical CSS for performance
+@use 'critical-home' as *;
+@use 'performance' as *;
+@use 'optimized-home' as *;
+
+// Performance optimizations
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-display: swap;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Step 4: Styles
+.container {
+  max-width: calc(100vw * 0.8);
+  contain: layout style;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: calc(100vw * 0.96);
+  }
+}
+
+.tox .tox-edit-area::before {
+  border-radius: 10px !important;
+}
+
+// Performance critical styles
+.performance-optimized {
+  will-change: auto;
+  contain: layout style paint;
+}
+
+// Lazy loading improvements
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}

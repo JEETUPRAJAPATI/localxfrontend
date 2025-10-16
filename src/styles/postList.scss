@@ -1,0 +1,237 @@
+.postList {
+  margin-top: 60px;
+  min-height: calc(100vh - 135px);
+
+  .left-ads,
+  .right-ads {
+    position: sticky;
+    top: 10vh;
+  }
+
+  .pstlst-cnt {
+    box-shadow: 0 1px 10px rgb(60 60 60 / 40%);
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+
+    .heading {
+      color: #34568a;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb-area {
+      border: 1px solid #eee;
+      background: #eee;
+      border-radius: 3px;
+      color: #444;
+      padding: 5px 10px;
+
+      .breadcrumb {
+        margin: 0;
+      }
+    }
+
+    .about_section {
+      border-radius: 10px;
+      border-style: double !important;
+      border-color: #136367;
+      padding: 10px;
+
+      a {
+        text-decoration: none;
+        color: #2f63e8;
+      }
+
+      h2.title {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 20px 0 10px;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.1;
+        color: rgb(51 51 51);
+      }
+
+      .desc p {
+        margin: 10px 0;
+        text-align: justify;
+        font-size: 17px;
+      }
+    }
+
+    .left-panel,
+    .right-panel {
+      padding: 10px;
+      border: solid 1px #eee;
+      border-radius: 5px;
+    }
+
+    .left-panel {
+      background: #eee;
+      .filterForm {
+        position: sticky;
+        top: calc(100vh * 0.1);
+      }
+    }
+
+    .filter-toggle-btn {
+      padding: 6px 15px;
+      border-radius: 5px;
+      box-shadow: 0 1px 4px rgba(51, 51, 51, 0.53);
+      font-size: 15px;
+      transition: all 0.3s ease-in-out;
+      background: #34568a;
+    }
+
+    .form-select {
+      border: 1px solid #a7a7a7;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 15px;
+      padding: 5px;
+    }
+
+    .filter_btn {
+      padding: 6px 15px;
+      border-radius: 5px;
+      box-shadow: 0 1px 4px rgb(51 51 51 / 53%);
+      font-size: 15px;
+      transition: all 0.3s ease-in-out;
+      background: #34568a;
+    }
+
+    .search-input-group {
+      border-radius: 0.375rem;
+    }
+
+    .search-input {
+      height: 35px;
+      font-size: 16px;
+      background-color: #f8f9fa;
+    }
+
+    .search-button-container {
+      background-color: transparent;
+      padding: 0;
+      border: 0;
+    }
+
+    .search-button {
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      background: #34568a;
+    }
+
+    .listBtnGroup {
+      button {
+        background: #e4e4e4;
+        color: #000;
+        font-size: 14px;
+      }
+
+      button.active {
+        color: #fff;
+        background: #34568a;
+        // border-color: var(--bs-btn-active-border-color);border-color
+      }
+    }
+
+    .alert-msg {
+      border: 2px dashed #f00;
+      border-radius: 7px;
+      padding: 5px 8px;
+      margin-bottom: 5px;
+      text-align: center;
+
+      p {
+        margin: 0;
+        padding: 5px;
+      }
+    }
+
+    .list-item,
+    .thumb-item,
+    .gallery-item {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .thumb-item {
+      .img-col {
+        margin-right: 10px;
+      }
+    }
+
+    .gallery-item {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .small-thumb {
+      margin-right: 5px;
+      width: 50px;
+      height: 50px;
+      border: solid 1px #eee;
+      border-radius: 5px;
+    }
+
+    .gallery-img {
+      height: 300px;
+      width: 250px;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    .small-thumb,
+    .gallery-img {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+
+    .icon,
+    .date {
+      color: #6f6f6f;
+    }
+
+    .date {
+      min-width: 40px;
+      font-size: 11px;
+    }
+
+    .content-link {
+      text-decoration: none;
+      color: #0000ef;
+      transition: all 0.3s ease-in-out;
+      a {
+        text-decoration: none;
+        color: #0000ef;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .location {
+      color: #555;
+      font-size: 13px;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+}

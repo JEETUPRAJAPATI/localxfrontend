@@ -1,0 +1,112 @@
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+
+  .login-cnt {
+    box-shadow: 0 1px 10px rgba(60, 60, 60, 0.4);
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+    width: 400px;
+    overflow-y: auto;
+    max-height: calc(100vh - 50px);
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+
+    .brand-logo {
+      margin: 0.90rem 0;
+      width: 180px;
+      height: 50px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .login__title {
+      font-weight: 700;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    h4 {
+      margin: 10px 0;
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .desc {
+      min-height: 75px;
+      border: 2px dashed #f00;
+      border-radius: 7px;
+      padding: 5px 8px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .login-with-google-section {
+      min-height: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loginForm {
+      .input-group {
+        border: 1px solid #a7a7a7;
+        border-radius: 10px;
+      }
+
+      .input-group-text {
+        border: 0;
+        border-radius: 10px;
+        background: inherit;
+      }
+
+      .form-control {
+        background: #fff;
+        border-radius: 10px;
+        font-size: 15px;
+        border: 0;
+        padding: 5px;
+      }
+
+      .google-recaptcha-section {
+        position: relative;
+        overflow: hidden;
+        min-height: 80px;
+      }
+
+      .sign__in__btn {
+        box-shadow: 1px 1px 2px 0 #6b6b6b;
+        transition: all 0.3s ease-in;
+        text-transform: uppercase;
+        font-size: 15px;
+      }
+    }
+  }
+}

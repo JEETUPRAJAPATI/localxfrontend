@@ -1,0 +1,15 @@
+.adsCarousel {
+  .carousel-inner {
+    background: #eeeeee;
+    border: solid 1px #eeeeee;
+    border-radius: 5px;
+  }
+  .adsItem {
+    height: 120px;
+    .adsItemImg {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}

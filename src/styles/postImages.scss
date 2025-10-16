@@ -1,0 +1,17 @@
+.post-img-card {
+    background: #fff;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* This ensures a square aspect ratio */
+    position: relative;
+}
+
+.post-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire space */
+    object-position: center; /* Centers the image */
+}

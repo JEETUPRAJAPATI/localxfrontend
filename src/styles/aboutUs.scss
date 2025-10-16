@@ -1,0 +1,19 @@
+.wrapper {
+  margin-top: 60px;
+  min-height: calc(100vh - 153px);
+
+  .aboutUs {
+    .title {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .about-content {
+      text-align: justify;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

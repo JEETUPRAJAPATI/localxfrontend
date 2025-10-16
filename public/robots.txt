@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow sensitive or irrelevant pages
+Disallow: /api/*
+Disallow: /forgot-password
+Disallow: /forgot-verification
+Disallow: /reset-password
+Disallow: /signup-verification
+
+# Sitemap
+Sitemap: https://nextdev.localxlist.org/sitemap.xml

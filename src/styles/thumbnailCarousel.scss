@@ -1,0 +1,93 @@
+.customLightBox {
+  .carousel-item {
+    height: 350px;
+    cursor: pointer;
+  }
+
+  .carousel .carousel-item img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  .thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .carousel-thumbs-wrapper {
+    display: flex;
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    /* Prevent line breaks and align items horizontally */
+    padding: 10px 0;
+  }
+
+  .carousel-thumb {
+    height: 60px;
+    width: 60px;
+    padding: 2px;
+    margin: 0 3px;
+    border: solid 1px #4e4646;
+    border-radius: 5px;
+    flex-shrink: 0;
+    /* Prevent thumbnails from shrinking */
+    cursor: pointer;
+  }
+
+  .thumbnail {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .thumbnail:hover {
+    opacity: 1;
+  }
+
+  .carousel-thumb.active {
+    border: 2px solid blue;
+  }
+
+  .carousel-thumb.active img {
+    opacity: 1;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    height: 15%;
+    width: 5%;
+    top: 50%;
+    background: #4e4646;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* Add transition for smooth effect */
+    position: absolute;
+    /* Make sure the controls are positioned */
+    transform: translateY(-50%);
+    /* Center vertically */
+  }
+
+  .carousel:hover .carousel-control-prev,
+  .carousel:hover .carousel-control-next {
+    /* Corrected this selector */
+    opacity: 1;
+    /* Show controls on hover */
+  }
+}
+
+.yarl__thumbnails_thumbnail {
+  width: 80px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.yarl__thumbnails_thumbnail_active {
+  opacity: 1;
+}

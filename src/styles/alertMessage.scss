@@ -1,0 +1,20 @@
+.alert-message {
+  font-weight: bold;
+  padding: 15px;
+
+  .alert-heading {
+    font-size: 18px;
+    font-weight: 800;
+  }
+  p {
+    font-weight: 500;
+  }
+  .h4,
+  p {
+    margin: 0;
+  }
+
+  .btn-close {
+    padding: 15px;
+  }
+}

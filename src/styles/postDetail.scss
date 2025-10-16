@@ -1,0 +1,140 @@
+.postDetail {
+  margin: 70px 0 0 0;
+  min-height: calc(100vh - 163px);
+
+  .postCnt {
+    box-shadow: 0 1px 10px rgb(60 60 60 / 40%);
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+  }
+
+  .post-wrapper {
+    max-width: 700px;
+    clear: both;
+    margin: auto;
+  }
+
+  .heading {
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn,
+  .dropdown-menu {
+    font-size: 15px;
+  }
+
+  .direction-btn .btn {
+    color: #405e8f;
+    background: none;
+    border: none;
+    padding: 0 10px;
+  }
+
+  .reply-action {
+    background: #405e8f;
+    padding: 6px 15px;
+    border-radius: 3px;
+    border: 1px solid #ff8f00;
+    text-shadow: 0.5px 0.5px #3337;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .reply-action::after {
+    content: none;
+  }
+
+  .dropdown-menu {
+    background: #fff;
+  }
+
+  .post-date {
+    border-bottom: 1px dotted #504f4f;
+    cursor: pointer;
+  }
+
+  .notices {
+    list-style-type: disc;
+    padding: 10px;
+  }
+
+  ul.notices li {
+    font-size: 0.8em;
+  }
+
+  .post-footer {
+    border-top: 1px solid #eee;
+  }
+
+  .post-footer .ft,
+  .ft .btn-link {
+    display: inline-flex;
+    color: #4e4e4e;
+    font-size: 12px;
+  }
+
+  .ft .btn-link {
+    color: blue;
+    text-decoration: none;
+    padding: 0;
+  }
+
+  .breadcrumb-area {
+    color: #444;
+    .breadcrumb {
+      margin: 0;
+      .breadcrumb-item a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  /* Tablet and Mobile devices */
+  @media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+      opacity: 1 !important; /* Full opacity for tablets and mobile */
+      width: 8% !important;
+    }
+  }
+}
+
+.postReportModal {
+  .modal-content {
+    background-color: #fff;
+  }
+
+  .modal-title.h4 {
+    font-size: unset;
+  }
+
+  .modal-header {
+    padding: 6px 15px;
+    font-size: 18px;
+    background: #efefef;
+    color: #4e4e4e;
+    border-bottom: 1px solid #dedcdc;
+  }
+
+  .modal-footer {
+    justify-content: flex-start;
+  }
+
+  .modal-footer button {
+    border-radius: 3px;
+    box-shadow: 0 1px 4px #3338;
+    line-height: 16px;
+    opacity: 1;
+    font-size: 16px;
+    padding: 6px 15px;
+    background: #317589;
+  }
+
+  .postReportForm .form-control {
+    font-size: 15px;
+    background-color: #fff;
+  }
+}

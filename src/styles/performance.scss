@@ -1,0 +1,263 @@
+/* Performance-optimized styles */
+
+/* Loading states */
+.app-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Optimized image styles */
+.optimized-image-container {
+  position: relative;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.optimized-image {
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.optimized-image.error {
+  filter: grayscale(100%) opacity(0.5);
+}
+
+.image-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.optimized-image-placeholder {
+  background: linear-gradient(90deg, #f8f9fa 25%, #e9ecef 50%, #f8f9fa 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* DOM optimization */
+.optimized-renderer {
+  contain: layout style paint;
+}
+
+.optimized-item {
+  contain: layout style;
+}
+
+/* Reduce layout shifts */
+.layout-stable {
+  min-height: 1px;
+  contain: layout;
+}
+
+/* Performance-critical utilities */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+
+/* Lazy loading improvements */
+.lazy-loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-loading {
+  opacity: 0.5;
+}
+
+/* Critical path CSS - Above the fold */
+.above-fold {
+  visibility: visible;
+  opacity: 1;
+}
+
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 100px;
+}
+
+/* Reduce CLS (Cumulative Layout Shift) */
+img, video, iframe {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Prevent font loading shifts */
+.font-loading {
+  font-display: swap;
+}
+
+/* Optimize animations for performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Critical viewport styles */
+@media (max-width: 576px) {
+  .performance-critical {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 768px) {
+  .performance-critical {
+    padding: 0.5rem;
+  }
+}
+
+/* Resource loading optimization */
+.preload-critical {
+  font-display: swap;
+}
+
+/* Memory optimization for large lists */
+.virtual-list {
+  overflow: auto;
+  height: 400px;
+  contain: strict;
+}
+
+.virtual-item {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+/* Browser-specific optimizations */
+@supports (content-visibility: auto) {
+  .heavy-content {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+  }
+}
+
+/* Intersection observer fallback */
+.intersection-loading {
+  background: #f8f9fa;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Performance monitoring styles */
+.performance-metric {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  z-index: 9999;
+  font-family: monospace;
+}
+
+/* Development only */
+@media (max-width: 0) {
+  .performance-metric {
+    display: none;
+  }
+}
+
+/* Critical CSS inlining optimization */
+.critical-css {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Reduce paint and composite layers */
+.layer-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Text compression ready styles */
+.text-compressed {
+  text-rendering: optimizeSpeed;
+  font-variant-ligatures: none;
+}
+
+/* Memory-efficient gradients */
+.efficient-gradient {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  background-attachment: local;
+}
+
+/* Optimize for Core Web Vitals */
+.web-vitals-optimized {
+  contain: layout style paint;
+  content-visibility: auto;
+  will-change: auto;
+}
+
+/* CDN-ready image containers */
+.cdn-image {
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.cdn-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

@@ -1,0 +1,27 @@
+[data-bs-theme='light'] {
+  --bs-primary: #0d6efd;
+  --bs-body-color: #333333;
+  --bs-body-bg: #e0e0e0;
+  --bs-card-bg: #fff;
+  --bs-body-font-family: 'Ubuntu', 'Berkshire Swash', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --bs-link-color: #34568a;
+
+  @font-face {
+    font-family: 'Berkshire Swash';
+    src:
+      local('Segoe UI'),
+      /* Windows */
+      local('San Francisco'),
+      /* macOS and iOS */
+      local('Roboto');
+    /* Android and other devices */
+    font-weight: normal; // Specify weight: normal, bold, etc.
+    font-style: normal; // Specify style: normal, italic, etc.
+    font-display: swap; // Use font-display: swap for faster rendering
+  }
+
+  .pagination {
+    --bs-pagination-active-bg: #34568a;
+    --bs-pagination-active-border-color: #34568a;
+  }
+}

@@ -1,0 +1,58 @@
+// Critical styles (loaded immediately)
+@use 'home';
+@use 'partners.scss';
+@use 'partnerCard.scss';
+@use 'partnerCardImage.scss';
+@use 'sponsersites.scss';
+
+// Non-critical styles (loaded after initial render)
+@use 'fixedHeader.scss';
+@use 'categoriesList.scss';
+@use 'postList.scss';
+@use 'postDetail.scss';
+@use 'postView.scss';
+@use 'thumbnailCarousel.scss';
+@use 'contactUs.scss';
+@use 'aboutUs.scss';
+@use 'terms.scss';
+@use 'friends.scss';
+@use 'friendSites.scss';
+@use 'partnerList.scss';
+@use 'blogList.scss';
+@use 'partnerCategories.scss';
+@use 'partnerCategoryDetail.scss';
+@use 'partnerAdd.scss';
+@use 'searchSites.scss';
+@use 'lazyImage.scss';
+@use 'error-page.scss';
+@use 'footer.scss';
+@use 'login.scss';
+@use 'signup.scss';
+@use 'forgotPassword.scss';
+@use 'forgotVerification.scss';
+@use 'resetPasswordVerification.scss';
+@use 'signupVerification.scss';
+
+// User Panel
+@use 'fixedAuthHeader.scss';
+@use 'notificationBell.scss';
+@use 'userDashboard.scss';
+@use 'postImages.scss';
+@use 'postPreview.scss';
+@use 'userCreatePost.scss';
+@use 'userPostSaveMessage.scss';
+@use 'userAllPost.scss';
+@use 'userPostView.scss';
+@use 'userPostEdit.scss';
+@use 'userRechargeBalance.scss';
+@use 'userManualRechargeBalance.scss';
+@use 'userRechargeHistory.scss';
+@use 'userChangeProfile.scss';
+@use 'imageCroppie.scss';
+@use 'userViewProfile.scss';
+@use 'userDeleteAccount.scss';
+
+// Deferred styles (loaded after initial render)
+@use 'alertMessage.scss';
+@use 'adsCarousel.scss';
+@use 'scrollToTopButton.scss';

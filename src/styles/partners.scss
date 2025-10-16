@@ -1,0 +1,87 @@
+.our__directory__title {
+  font-size: 30px;
+}
+
+.our__directory__title a {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #34568a;
+  text-decoration: none;
+}
+
+.partners.container {
+  background: unset;
+  box-shadow: unset;
+}
+
+.partners {
+
+  /* Base styles for all screen sizes */
+  .card-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5%;
+    /* Adjusted to offset the margin on the cards */
+    justify-content: center;
+    /* Optional: centers cards in the row */
+  }
+
+  .partner-card {
+    box-sizing: border-box;
+    margin: 0.5%;
+    /* Consistent margin on all sides */
+    transition: transform 0.2s ease;
+    /* Add any additional card styling here */
+  }
+
+  // Media Queries
+
+  /* Small devices (Mobile Phones) */
+  @media (max-width: 480px) {
+    .partner-card {
+      width: 100%;
+      margin: 0.5% 0;
+      /* Vertical margin only */
+    }
+  }
+
+  /* Medium devices (Portrait Tablets and Large Phones) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .partner-card {
+      width: 49%;
+      /* 2 cards per row */
+    }
+  }
+
+  /* Medium to large devices (Landscape Tablets) */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .partner-card {
+      width: 32.33%;
+      /* 3 cards per row */
+    }
+  }
+
+  /* Large devices (Desktops and Laptops) */
+  @media (min-width: 993px) and (max-width: 1200px) {
+    .partner-card {
+      width: 24%;
+      /* 4 cards per row */
+    }
+  }
+
+  /* Extra large devices (Widescreen desktops) */
+  @media (min-width: 1201px) and (max-width: 1440px) {
+    .partner-card {
+      width: 19%;
+      /* 5 cards per row */
+    }
+  }
+
+  /* Ultra large devices (Full HD and above) */
+  @media (min-width: 1441px) {
+    .partner-card {
+      width: 19%;
+      /* 6 cards per row */
+    }
+  }
+}

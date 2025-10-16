@@ -1,0 +1,201 @@
+.homePage {
+  .unused-class-home-module {
+    color: green;
+  }
+
+  .pageWrapper {
+    min-height: calc(100vh - 100px);
+
+    .homeCnt {
+      min-height: 500px;
+      box-shadow: 0 1px 10px rgb(60 60 60 / 40%);
+      background: #fff;
+      border-radius: 4px;
+      margin-top: 10px;
+      padding: 15px;
+
+      .brandLogo {
+        width: 300px;
+        height: 77px;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .homeTopNotice {
+        text-align: center;
+        min-height: 50px;
+      }
+
+      .navRow {
+        min-height: 35px;
+      }
+
+      .topNav {
+        border-bottom: 2px solid #2f5bab;
+      }
+
+      .chooseLocationNav {
+        padding: 5px 0;
+      }
+
+      .myAccountNav {
+        padding: 5px 0;
+
+        .accountLink {
+          color: #2f5ba2;
+          font-weight: bold;
+          font-size: 13px;
+          text-decoration: none;
+        }
+
+        .separator {
+          margin: 0 5px;
+        }
+      }
+
+      .countriesDir .card,
+      .listGroup,
+      .listGroupItem,
+      .homePartnersSection .card {
+        background-color: #fff;
+      }
+
+      .countriesDir .card,
+      .listGroupItem,
+      .homePartnersSection .card {
+        border-radius: 0;
+        border: 0;
+        padding-top: 0;
+      }
+
+      .listGroupItem {
+        display: flex;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          min-height: 17px;
+        }
+      }
+
+      .countriesDir {
+        min-height: 200px;
+
+        .cardHeader {
+          background: #d4d4d4;
+          padding: 10px;
+          font-size: 18px;
+          border-radius: 0;
+          margin-bottom: 5px;
+        }
+
+        .cardBody {
+          padding: 0;
+        }
+
+        .citiesContainer {
+          column-count: 4;
+          column-gap: 16px;
+          margin-bottom: 5px;
+        }
+
+        .cityCard {
+          break-inside: avoid;
+        }
+
+        .countryTitle {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 1.1;
+          margin: 0;
+        }
+
+        .cityTitle {
+          font-weight: bolder;
+          font-size: 15px;
+          background: #d4d4d4;
+          line-height: 1.1;
+          margin: 0;
+        }
+
+        .subcityTitle {
+          font-size: 13px;
+          margin: 0;
+        }
+      }
+
+      .aboutSection {
+        min-height: 350px;
+        border-radius: 10px;
+        border-style: double !important;
+        border-color: #136367;
+        padding: 10px;
+        margin: 1rem 0.2rem;
+
+        a {
+          text-decoration: none;
+        }
+
+        h3 {
+          line-height: 20px;
+        }
+
+        .title {
+          box-sizing: border-box;
+          padding: 0;
+          margin: 20px 0 10px;
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 1.1;
+          color: rgb(51 51 51);
+        }
+
+        .desc {
+          p {
+            margin: 10px 0;
+            text-align: justify;
+            font-size: 17px;
+          }
+        }
+
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .homeFooter {
+      position: relative !important;
+    }
+
+    .countriesDir {
+      margin-top: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pageWrapper {
+      margin-bottom: 85px;
+    }
+
+    .countriesDir {
+      margin-top: 0.5rem;
+    }
+
+    .citiesContainer {
+      column-count: 2 !important;
+      margin-left: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .citiesContainer {
+      column-count: 1 !important;
+    }
+  }
+}

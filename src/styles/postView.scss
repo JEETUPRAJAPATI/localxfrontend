@@ -1,0 +1,76 @@
+.postView {
+  .heading {
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: justify;
+    word-wrap: break-word;
+  }
+
+  .btn,
+  .dropdown-menu {
+    font-size: 14px;
+  }
+
+  .direction-btn .btn {
+    color: #405e8f;
+    background: none;
+    border: none;
+    padding: 0 10px;
+  }
+
+  .reply-action {
+    background: #405e8f;
+    padding: 3px 10px;
+    border-radius: 3px;
+    border: 1px solid #ff8f00;
+    text-shadow: 0.5px 0.5px #3337;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .reply-action::after {
+    content: none;
+  }
+
+  .dropdown-menu {
+    background: #fff;
+
+    .dropdown-item {
+      &:active {
+        background: #fff;
+        color: inherit;
+      }
+    }
+  }
+
+  .post-date {
+    font-size: 12px;
+    border-bottom: 1px dotted #504f4f;
+    cursor: pointer;
+  }
+
+  .top-post-date-label {
+    font-size: 13px;
+  }
+
+  .table {
+    --bs-table-bg: #fff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .table th {
+    color: #405e8f;
+  }
+
+  .corousel-placeholder {
+    height: 250px !important;
+  }
+
+  .post-description {
+    text-align: justify;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+}

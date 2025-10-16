@@ -1,0 +1,44 @@
+.contactWrapper {
+  margin-top: 60px;
+  min-height: calc(100vh - 153px);
+
+  .contact-cnt {
+    box-shadow: 0 1px 10px rgb(60 60 60 / 40%);
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+    width: 720px;
+
+    .contact-form {
+      padding: 20px;
+
+      h1 {
+        font-size: 36px;
+        color: #333; /* Dark text color */
+      }
+
+      .form-control {
+        background: #fff !important;
+        border-radius: 4px !important;
+        font-size: 12px !important;
+        margin: 6px 0;
+        padding: 5px;
+        border: 1px solid rgb(60 60 60 / 40%);
+      }
+
+      .btn {
+        border: 1px solid #ff8f00;
+        color: #fff;
+        text-shadow: 0.5px 0.5px #3337;
+        transition: all 0.3s ease-in-out;
+        border-radius: 3px;
+        box-shadow: 0 1px 4px #3338;
+        line-height: 16px;
+        opacity: 1;
+        font-size: 16px;
+        margin: 5px 0;
+        padding: 6px 15px;
+      }
+    }
+  }
+}
