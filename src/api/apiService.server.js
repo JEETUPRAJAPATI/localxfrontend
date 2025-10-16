@@ -20,22 +20,26 @@ const FALLBACK_DATA = {
   },
   topNotice: '<p>Localxlist.org is a Free casual dating and personal classified website.</p>',
   dashboardContent: '<h1>Find here male and Female Escorts Online</h1><p>Welcome to LocalXList - your platform for connections.</p>',
-  countries: [
-    {
-      id: 1,
-      country: 'United States',
-      cities: [
-        {
-          id: 1,
-          city: 'New York',
-          subcities: [
-            { id: 1, subcity: 'Manhattan' },
-            { id: 2, subcity: 'Brooklyn' }
-          ]
-        }
-      ]
-    }
-  ],
+  countries: {
+    list: [
+      {
+        id: 1,
+        country: 'United States',
+        cities: [
+          {
+            id: 1,
+            city: 'New York',
+            subcities: [
+              { id: 1, subcity: 'Manhattan' },
+              { id: 2, subcity: 'Brooklyn' }
+            ]
+          }
+        ]
+      }
+    ],
+    hasMoreCountries: false,
+    countryPagination: { totalPages: 1, currentPage: 1, nextPage: null }
+  },
   partners: [],
   sponsers: { heading: 'Sponsored Websites', data: [] },
   commonSettings: {
@@ -84,7 +88,16 @@ export const getHomeDashboardContentAPI = async () => {
 export const getHomeCountriesAPI = async () => {
   try {
     const response = await serverApiClient.get('/api/v1/home/countries');
-    return response?.data?.data;
+    // Ensure the response has the correct structure
+    const data = response?.data?.data;
+    if (data && Array.isArray(data)) {
+      return {
+        list: data,
+        hasMoreCountries: false,
+        countryPagination: { totalPages: 1, currentPage: 1, nextPage: null }
+      };
+    }
+    return data || FALLBACK_DATA.countries;
   } catch (error) {
     console.warn('Countries API not available:', error.message);
     return FALLBACK_DATA.countries;
@@ -94,7 +107,16 @@ export const getHomeCountriesAPI = async () => {
 export const getHomeCountriesV2API = async (params = {}) => {
   try {
     const response = await serverApiClient.get('/api/v1/home/countriesV2', { params });
-    return response?.data?.data;
+    // Ensure the response has the correct structure
+    const data = response?.data?.data;
+    if (data && Array.isArray(data)) {
+      return {
+        list: data,
+        hasMoreCountries: false,
+        countryPagination: { totalPages: 1, currentPage: 1, nextPage: null }
+      };
+    }
+    return data || FALLBACK_DATA.countries;
   } catch (error) {
     console.warn('Countries V2 API not available:', error.message);
     return FALLBACK_DATA.countries;
@@ -106,7 +128,9 @@ export const getHomePartnersAPI = async () => {
     const response = await serverApiClient.get('/api/v1/home/partners', { 
       headers: { 'Origin': process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000" } 
     });
-    return response?.data?.data;
+    const data = response?.data?.data;
+    // Ensure we return an array
+    return Array.isArray(data) ? data : FALLBACK_DATA.partners;
   } catch (error) {
     console.warn('Partners API not available:', error.message);
     return FALLBACK_DATA.partners;
@@ -119,7 +143,15 @@ export const getHomeSponsersAPI = async (params = {}) => {
       params, 
       headers: { 'Origin': process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000" } 
     });
-    return response?.data?.data;
+    const data = response?.data?.data;
+    // Ensure we return the correct structure for sponsers
+    if (data && typeof data === 'object') {
+      return {
+        heading: data.heading || 'Sponsored Websites',
+        data: Array.isArray(data.data) ? data.data : []
+      };
+    }
+    return FALLBACK_DATA.sponsers;
   } catch (error) {
     console.warn('Sponsers API not available:', error.message);
     return FALLBACK_DATA.sponsers;
