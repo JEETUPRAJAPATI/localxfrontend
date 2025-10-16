@@ -1,7 +1,7 @@
 // API Route: /api/v1/home/countriesV2
 // This proxies requests to the external API server
 
-import { getCountriesData } from '../../../../api/apiService.server';
+import { getHomeCountriesV2API } from '../../../../api/apiService.server';
 
 export default async function handler(req, res) {
   try {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
 
     // Get countries data from external API
-    const countriesData = await getCountriesData();
+    const countriesData = await getHomeCountriesV2API();
     
     console.log('✅ API Success: GET /api/v1/home/countriesV2 - Status: 200');
     console.log('📊 Countries Data:', typeof countriesData, '- Items:', countriesData?.list?.length || 0);

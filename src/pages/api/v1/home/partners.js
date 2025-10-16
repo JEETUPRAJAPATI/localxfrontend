@@ -1,7 +1,7 @@
 // API Route: /api/v1/home/partners
 // This proxies requests to the external API server
 
-import { getPartnersData } from '../../../../api/apiService.server';
+import { getHomePartnersAPI } from '../../../../api/apiService.server';
 
 export default async function handler(req, res) {
   try {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
 
     // Get partners data from external API
-    const partnersData = await getPartnersData();
+    const partnersData = await getHomePartnersAPI();
     
     console.log('✅ API Success: GET /api/v1/home/partners - Status: 200');
     console.log('📊 Partners Data:', Array.isArray(partnersData) ? `Array with ${partnersData.length} items` : typeof partnersData);

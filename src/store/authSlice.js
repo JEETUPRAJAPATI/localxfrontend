@@ -7,6 +7,12 @@ const authSlice = createSlice({
     setAuthProps: (state, action) => {
       const { key, data, type } = action.payload;
 
+      // Validate key before processing
+      if (!key || typeof key !== 'string') {
+        console.warn('Invalid key provided to setAuthProps:', key);
+        return;
+      }
+
       // Split the key by '.' to handle nested properties
       const keys = key.split('.');
       let current = state;

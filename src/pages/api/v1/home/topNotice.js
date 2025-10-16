@@ -1,7 +1,7 @@
 // API Route: /api/v1/home/topNotice
 // This proxies requests to the external API server
 
-import { getTopNoticeData } from '../../../../api/apiService.server';
+import { getHomeTopNoticeAPI } from '../../../../api/apiService.server';
 
 export default async function handler(req, res) {
   try {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
 
     // Get top notice data from external API
-    const topNoticeData = await getTopNoticeData();
+    const topNoticeData = await getHomeTopNoticeAPI();
     
     console.log('✅ API Success: GET /api/v1/home/topNotice - Status: 200');
     console.log('📊 Top Notice Data:', typeof topNoticeData, '- Length:', topNoticeData?.length || 0);

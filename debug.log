@@ -1,0 +1,119 @@
+[2025-10-16T10:59:11.843Z] INFO: === Application Starting ===
+[2025-10-16T10:59:11.845Z] INFO: NODE_ENV: production
+[2025-10-16T10:59:11.846Z] INFO: NEXT_PUBLIC_NODE_ENV: production
+[2025-10-16T10:59:11.846Z] INFO: PORT: 3001
+[2025-10-16T10:59:11.846Z] INFO: Current directory: D:\inventory\TechiziBuilder\Utkrash\lxl-frontend
+[2025-10-16T10:59:11.847Z] INFO: Node version: v20.19.3
+[2025-10-16T10:59:11.847Z] INFO: Starting Next.js app with dev mode: false
+[2025-10-16T10:59:18.107Z] INFO: Next.js app prepared successfully
+[2025-10-16T10:59:18.125Z] INFO: > Server ready on http://0.0.0.0:3001
+[2025-10-16T10:59:18.331Z] INFO: Request: GET /
+[2025-10-16T10:59:21.760Z] INFO: Request: GET /_next/static/chunks/webpack-ebdb6c9e70ba8922.js
+[2025-10-16T10:59:21.765Z] INFO: Request: GET /_next/static/chunks/pages/_app~f3956634-928cf70465df0c0a.js
+[2025-10-16T10:59:21.774Z] INFO: Request: GET /_next/static/chunks/commons~2e3a7503-868dd8dd7bb39409.js
+[2025-10-16T10:59:21.865Z] INFO: Request: GET /_next/static/chunks/commons~8a1c583f-31b13c4eb136aa4e.js
+[2025-10-16T10:59:21.892Z] INFO: Request: GET /_next/static/YcZgO1yaOJIuKoCP75zU1/_buildManifest.js
+[2025-10-16T10:59:21.896Z] INFO: Request: GET /_next/static/YcZgO1yaOJIuKoCP75zU1/_ssgManifest.js
+[2025-10-16T10:59:21.979Z] INFO: Request: GET /.well-known/appspecific/com.chrome.devtools.json
+[2025-10-16T10:59:27.349Z] INFO: Request: GET /site.webmanifest
+[2025-10-16T10:59:27.390Z] INFO: Request: GET /images/favicon.ico
+[2025-10-16T10:59:27.475Z] INFO: Request: GET /icon-192x192.png
+[2025-10-16T10:59:27.522Z] INFO: Request: GET /icon-192x192.png
+[2025-10-16T10:59:27.600Z] INFO: Request: GET /images/logo.png
+[2025-10-16T10:59:27.609Z] INFO: Request: GET /images/favicon.ico
+[2025-10-16T10:59:45.508Z] INFO: Request: GET /_next/data/YcZgO1yaOJIuKoCP75zU1/index.json
+[2025-10-16T10:59:45.541Z] INFO: Request: GET /_next/data/YcZgO1yaOJIuKoCP75zU1/login.json
+[2025-10-16T10:59:45.563Z] INFO: Server:==> FROM MIDDLEWARE!!
+[2025-10-16T10:59:45.565Z] INFO: Server:==> No auth found in cookies
+[2025-10-16T10:59:47.527Z] INFO: Request: GET /
+[2025-10-16T10:59:48.625Z] INFO: Request: GET /.well-known/appspecific/com.chrome.devtools.json
+[2025-10-16T10:59:49.603Z] INFO: Request: GET /_next/static/css/7d2771a07776b8ad.css
+[2025-10-16T10:59:49.610Z] INFO: Request: GET /_next/static/css/f01457c3e7487e05.css
+[2025-10-16T10:59:49.612Z] INFO: Request: GET /_next/static/media/70d2fd2b9078a5a3-s.p.woff2
+[2025-10-16T10:59:49.614Z] INFO: Request: GET /_next/static/media/49c73d5444001430-s.p.woff2
+[2025-10-16T10:59:49.689Z] INFO: Request: GET /_next/static/chunks/bootstrap~b14fbb65-920c7950adb2bf85.js
+[2025-10-16T10:59:49.692Z] INFO: Request: GET /_next/static/chunks/bootstrap~3cd21699-0663faa849af8f73.js
+[2025-10-16T10:59:49.820Z] INFO: Request: GET /_next/static/chunks/bootstrap~cd4b14bb-186cec9ce4215f26.js
+[2025-10-16T10:59:49.839Z] INFO: Request: GET /_next/static/chunks/bootstrap~3c9e705b-11d4a02bd7568e62.js
+[2025-10-16T10:59:49.842Z] INFO: Request: GET /_next/static/chunks/utils~e3924278-09c5298dd1116c8f.js
+[2025-10-16T10:59:49.846Z] INFO: Request: GET /_next/static/chunks/utils~47b797e4-27983651f995e3c4.js
+[2025-10-16T10:59:49.867Z] INFO: Request: GET /_next/static/chunks/utils~0f09c32a-0eaa2c4d7c3bfe5f.js
+[2025-10-16T10:59:49.887Z] INFO: Request: GET /_next/static/chunks/utils~37a93c5f-a12bd0a565405a86.js
+[2025-10-16T10:59:49.995Z] INFO: Request: GET /_next/static/chunks/utils~6f605457-1f584b36619a7d02.js
+[2025-10-16T10:59:50.009Z] INFO: Request: GET /_next/static/chunks/utils~991e03fd-9ebde0133e58c867.js
+[2025-10-16T10:59:50.015Z] INFO: Request: GET /_next/static/chunks/1963.1e5ed131bed8c294.js
+[2025-10-16T10:59:50.034Z] INFO: Request: GET /_next/static/chunks/webpack-ebdb6c9e70ba8922.js
+[2025-10-16T10:59:50.037Z] INFO: Request: GET /_next/static/chunks/react-core~6c156c2c-e393337b0ca9ae60.js
+[2025-10-16T10:59:50.044Z] INFO: Request: GET /_next/static/chunks/react-core~8cbd2506-f306ddce29a981a6.js
+[2025-10-16T10:59:50.097Z] INFO: Request: GET /_next/static/chunks/vendor~aacc2dbb-a42fa848b5eeed37.js
+[2025-10-16T10:59:50.103Z] INFO: Request: GET /_next/static/chunks/vendor~bc050c32-139907458e764c97.js
+[2025-10-16T10:59:50.106Z] INFO: Request: GET /_next/static/chunks/vendor~e619120e-4b0aabb41edc8fdb.js
+[2025-10-16T10:59:50.131Z] INFO: Request: GET /_next/static/chunks/vendor~f945abb9-704b31aa8ac60ddb.js
+[2025-10-16T10:59:50.139Z] INFO: Request: GET /_next/static/chunks/vendor~f67df17f-86ab447999e8869a.js
+[2025-10-16T10:59:50.169Z] INFO: Request: GET /_next/static/chunks/vendor~d7c15829-1cfa5518475959c7.js
+[2025-10-16T10:59:50.183Z] INFO: Request: GET /_next/static/chunks/vendor~351e52ed-c36a16955143f141.js
+[2025-10-16T10:59:50.219Z] INFO: Request: GET /_next/static/chunks/vendor~a6f90180-91bfd2f57441ef1b.js
+[2025-10-16T10:59:50.223Z] INFO: Request: GET /_next/static/chunks/vendor~d91c2bd6-e1d84bfc943329bc.js
+[2025-10-16T10:59:50.228Z] INFO: Request: GET /_next/static/chunks/vendor~42bbf998-4cceb3a9e406aefb.js
+[2025-10-16T10:59:50.231Z] INFO: Request: GET /_next/static/chunks/vendor~9a66d3c2-5fe0b355073c1051.js
+[2025-10-16T10:59:50.253Z] INFO: Request: GET /_next/static/chunks/vendor~1ca5fb23-28d91a41408e7d61.js
+[2025-10-16T10:59:50.287Z] INFO: Request: GET /_next/static/chunks/vendor~2898f16f-67b822ec2b39c899.js
+[2025-10-16T10:59:50.297Z] INFO: Request: GET /_next/static/chunks/vendor~a0de3438-8195446b4bf608dc.js
+[2025-10-16T10:59:50.306Z] INFO: Request: GET /_next/static/chunks/vendor~17ede90a-238f7201a4a43716.js
+[2025-10-16T10:59:50.321Z] INFO: Request: GET /_next/static/chunks/vendor~a5a4cb45-42228eb1c05dffe8.js
+[2025-10-16T10:59:50.329Z] INFO: Request: GET /_next/static/chunks/vendor~b23b11a0-ac10051125a9b45a.js
+[2025-10-16T10:59:50.346Z] INFO: Request: GET /_next/static/chunks/vendor~b0b4e7fe-7f54932da1d41fdf.js
+[2025-10-16T10:59:50.388Z] INFO: Request: GET /_next/static/chunks/vendor~8cbd2506-650705e76d4dec0f.js
+[2025-10-16T10:59:50.391Z] INFO: Request: GET /_next/static/chunks/vendor~377fed06-139a33f05b9f2e9c.js
+[2025-10-16T10:59:50.406Z] INFO: Request: GET /_next/static/chunks/main-6df36445d7fc05d7.js
+[2025-10-16T10:59:50.418Z] INFO: Request: GET /_next/static/chunks/redux-397d27fd2ccfd5ed.js
+[2025-10-16T10:59:50.424Z] INFO: Request: GET /_next/static/chunks/pages/_app~f3956634-928cf70465df0c0a.js
+[2025-10-16T10:59:50.446Z] INFO: Request: GET /_next/static/chunks/pages/_app~b2fa5551-e54a80cf21130275.js
+[2025-10-16T10:59:50.456Z] INFO: Request: GET /_next/static/chunks/commons~f3956634-5ba46116d7905ec1.js
+[2025-10-16T10:59:50.512Z] INFO: Request: GET /_next/static/chunks/commons~33575219-9f34e2550e059e76.js
+[2025-10-16T10:59:50.526Z] INFO: Request: GET /_next/static/chunks/commons~2e3a7503-868dd8dd7bb39409.js
+[2025-10-16T10:59:50.540Z] INFO: Request: GET /_next/static/chunks/commons~0392c408-09dd8b438a2427bc.js
+[2025-10-16T10:59:50.545Z] INFO: Request: GET /_next/static/chunks/commons~8a1c583f-31b13c4eb136aa4e.js
+[2025-10-16T10:59:50.547Z] INFO: Request: GET /_next/static/chunks/pages/index-532c3243b2183c5a.js
+[2025-10-16T10:59:50.571Z] INFO: Request: GET /_next/static/YcZgO1yaOJIuKoCP75zU1/_buildManifest.js
+[2025-10-16T10:59:50.593Z] INFO: Request: GET /_next/static/YcZgO1yaOJIuKoCP75zU1/_ssgManifest.js
+[2025-10-16T10:59:51.925Z] INFO: Request: GET /images/logo.png
+[2025-10-16T10:59:51.981Z] INFO: Request: GET /images/favicon.ico
+[2025-10-16T10:59:52.405Z] INFO: Request: GET /_next/static/chunks/3119.53a83b6a7b68e8b1.js
+[2025-10-16T10:59:52.474Z] INFO: Request: GET /_next/static/chunks/750.1d1b152385c4a9d2.js
+[2025-10-16T10:59:52.589Z] INFO: Request: GET /_next/static/chunks/fontawesome~ae1c6d6d.908a334b1c61bd3c.js
+[2025-10-16T10:59:52.723Z] INFO: Request: GET /_next/static/chunks/fontawesome~46c58f3e.d2edf02a3da305e1.js
+[2025-10-16T10:59:52.728Z] INFO: Request: GET /_next/static/chunks/fontawesome~1e1134d3.8a6998d5668d8ae8.js
+[2025-10-16T10:59:52.731Z] INFO: Request: GET /_next/static/chunks/fontawesome~265aa8b7.48d081a6bf4d041e.js
+[2025-10-16T10:59:52.739Z] INFO: Request: GET /_next/static/chunks/8884.a2dceb15136e2875.js
+[2025-10-16T10:59:52.743Z] INFO: Request: GET /_next/image?url=%2Fimages%2Flogo.png&w=1200&q=75
+[2025-10-16T10:59:53.155Z] INFO: Request: GET /_next/data/YcZgO1yaOJIuKoCP75zU1/index.json
+[2025-10-16T10:59:53.178Z] INFO: Request: GET /_next/data/YcZgO1yaOJIuKoCP75zU1/login.json
+[2025-10-16T10:59:53.193Z] INFO: Server:==> FROM MIDDLEWARE!!
+[2025-10-16T10:59:53.194Z] INFO: Server:==> No auth found in cookies
+[2025-10-16T10:59:53.231Z] INFO: Request: GET /_next/static/chunks/9629.e7dd93dc213033f9.js
+[2025-10-16T10:59:53.240Z] INFO: Request: GET /_next/static/chunks/pages/login-0f541436a8fe986c.js
+[2025-10-16T10:59:53.304Z] INFO: Request: GET /images/favicon.ico
+[2025-10-16T10:59:53.314Z] INFO: Request: GET /site.webmanifest
+[2025-10-16T10:59:53.364Z] INFO: Request: GET /icon-192x192.png
+[2025-10-16T10:59:53.408Z] INFO: Request: GET /icon-192x192.png
+[2025-10-16T11:00:38.760Z] INFO: Request: GET /icon-192x192.png
+[2025-10-16T11:09:02.805Z] INFO: Request: GET /
+[2025-10-16T11:09:07.352Z] INFO: Request: GET /.well-known/appspecific/com.chrome.devtools.json
+[2025-10-16T11:09:10.758Z] INFO: Request: GET /images/favicon.ico
+[2025-10-16T11:09:11.155Z] INFO: Request: GET /_next/data/YcZgO1yaOJIuKoCP75zU1/index.json
+[2025-10-16T11:09:11.346Z] INFO: Request: GET /_next/data/YcZgO1yaOJIuKoCP75zU1/login.json
+[2025-10-16T11:09:11.393Z] INFO: Server:==> FROM MIDDLEWARE!!
+[2025-10-16T11:09:11.394Z] INFO: Server:==> No auth found in cookies
+[2025-10-16T11:09:11.414Z] INFO: Request: GET /site.webmanifest
+[2025-10-16T11:09:11.503Z] INFO: Request: GET /icon-192x192.png
+[2025-10-16T11:09:27.218Z] INFO: Request: GET /
+[2025-10-16T11:09:27.692Z] INFO: Request: GET /.well-known/appspecific/com.chrome.devtools.json
+[2025-10-16T11:09:30.800Z] INFO: Request: GET /images/favicon.ico
+[2025-10-16T11:09:31.875Z] INFO: Request: GET /icon-192x192.png
+[2025-10-16T11:09:31.988Z] INFO: Request: GET /site.webmanifest
+[2025-10-16T11:09:32.021Z] INFO: Request: GET /_next/data/YcZgO1yaOJIuKoCP75zU1/login.json
+[2025-10-16T11:09:32.044Z] INFO: Server:==> FROM MIDDLEWARE!!
+[2025-10-16T11:09:32.049Z] INFO: Server:==> No auth found in cookies
+[2025-10-16T11:09:32.085Z] INFO: Request: GET /_next/data/YcZgO1yaOJIuKoCP75zU1/index.json
+[2025-10-16T11:09:32.358Z] INFO: Request: GET /icon-192x192.png

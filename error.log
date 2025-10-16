@@ -1,0 +1,4 @@
+[2025-10-16T11:09:29.990Z] ERROR:  [31m[1m⨯[22m[39m Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open 'D:\inventory\TechiziBuilder\Utkrash\lxl-frontend\.next\server\pages\404.html'
+    at async Server.<anonymous> (D:\inventory\TechiziBuilder\Utkrash\lxl-frontend\app.js:72:13)
+[2025-10-16T11:09:30.862Z] ERROR:  [31m[1m⨯[22m[39m Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open 'D:\inventory\TechiziBuilder\Utkrash\lxl-frontend\.next\server\pages\404.html'
+    at async Server.<anonymous> (D:\inventory\TechiziBuilder\Utkrash\lxl-frontend\app.js:72:13)

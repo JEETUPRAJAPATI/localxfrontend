@@ -22,51 +22,77 @@ const NextImage = ({
   style = {},
   ...props
 }) => {
-  // Use refs to prevent infinite loops
+  // Use refs to prevent infinite loops and ensure stability
   const hasErroredRef = useRef(false);
   const timeoutRef = useRef(null);
+  const isUnmountedRef = useRef(false);
   
-  // State to track current image source
+  // State to track current image source - with error handling
   const [currentSrc, setCurrentSrc] = useState(() => {
-    // Use the sanitizer to validate and clean the URL immediately
-    return sanitizeImageUrl(src, defaultImage);
+    try {
+      return sanitizeImageUrl(src, defaultImage);
+    } catch (error) {
+      console.warn('NextImage: Error initializing src:', error);
+      return defaultImage;
+    }
   });
 
   const [isError, setIsError] = useState(false);
 
-  // Clean up timeout on unmount
+  // Component unmount tracking
   useEffect(() => {
+    isUnmountedRef.current = false;
     return () => {
+      isUnmountedRef.current = true;
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
     };
   }, []);
 
-  // Reset state when src prop changes
+  // Reset state when src prop changes - with improved error handling
   useEffect(() => {
-    // Sanitize the new src URL
-    const sanitizedSrc = sanitizeImageUrl(src, defaultImage);
-    
-    // Only update if different and we haven't errored on this source
-    if (sanitizedSrc !== currentSrc && !hasErroredRef.current) {
-      console.log(`Image URL updated: ${src} -> ${sanitizedSrc}`);
-      setCurrentSrc(sanitizedSrc);
-      setIsError(false);
-      hasErroredRef.current = false;
+    try {
+      // Prevent updates if component is unmounted
+      if (isUnmountedRef.current) return;
+      
+      // Sanitize the new src URL
+      const sanitizedSrc = sanitizeImageUrl(src, defaultImage);
+      
+      // Only update if different and we haven't errored on this source
+      if (sanitizedSrc !== currentSrc && !hasErroredRef.current) {
+        console.log(`NextImage: URL updated from ${currentSrc} to ${sanitizedSrc}`);
+        setCurrentSrc(sanitizedSrc);
+        setIsError(false);
+        hasErroredRef.current = false;
+      }
+    } catch (error) {
+      console.error('NextImage: Error in useEffect:', error);
+      if (!isUnmountedRef.current) {
+        setCurrentSrc(defaultImage);
+        setIsError(true);
+      }
     }
   }, [src, defaultImage, currentSrc]);
 
   // Handle image loading errors - CRITICAL: Prevent infinite loops
   const handleError = useCallback((e) => {
-    console.warn(`Image failed to load: ${currentSrc}`);
+    // Prevent actions if component is unmounted
+    if (isUnmountedRef.current) return;
+    
+    console.warn(`NextImage: Image failed to load: ${currentSrc}`);
     
     // Call original onError if provided
-    if (onError) onError(e);
+    try {
+      if (onError) onError(e);
+    } catch (error) {
+      console.error('NextImage: Error in onError callback:', error);
+    }
     
     // CRITICAL: Only fallback ONCE per component instance
     if (!hasErroredRef.current && currentSrc !== defaultImage) {
-      console.log(`Falling back to default image: ${defaultImage}`);
+      console.log(`NextImage: Falling back to default image: ${defaultImage}`);
       hasErroredRef.current = true;
       setIsError(true);
       setCurrentSrc(defaultImage);
@@ -86,10 +112,19 @@ const NextImage = ({
   let finalHeight = height;
 
   if (aspectRatio && !fill && (!width || !height)) {
-    const ratio =
-      typeof aspectRatio === "string"
-        ? parseFloat(aspectRatio.split("/").reduce((a, b) => a / b))
-        : aspectRatio;
+    let ratio;
+    if (typeof aspectRatio === "string" && aspectRatio.includes("/")) {
+      try {
+        const parts = aspectRatio.split("/");
+        ratio = parseFloat(parts[0]) / parseFloat(parts[1]);
+      } catch {
+        ratio = 1; // Default ratio if parsing fails
+      }
+    } else if (typeof aspectRatio === "number") {
+      ratio = aspectRatio;
+    } else {
+      ratio = 1; // Default ratio
+    }
 
     if (width && !height) {
       finalHeight = Math.round(width / ratio);

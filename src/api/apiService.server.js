@@ -10,11 +10,11 @@ const FALLBACK_DATA = {
     robots: 'index, follow',
     ogTitle: 'Find Escorts Near you Online | Localxlist',
     ogDescription: 'Localxlist is a free platform to find female and male escorts near you.',
-    ogImage: '/images/logo.webp',
+    ogImage: '/images/logo.png', // Use local static logo
     ogSiteName: 'localxlist',
     ogType: 'website',
     ogUrl: 'https://localxlist.net',
-    image: '/images/logo.webp',
+    image: '/images/logo.png', // Use local static logo
     favicon: '/images/favicon.ico',
     author: 'Localxlist.net'
   },
@@ -44,8 +44,8 @@ const FALLBACK_DATA = {
   sponsers: { heading: 'Sponsored Websites', data: [] },
   commonSettings: {
     siteName: 'LocalXList',
-    headerLogo: '/images/logo.webp',
-    footerLogo: '/images/logo.webp',
+    headerLogo: '/images/logo.png', // Use local static logo
+    footerLogo: '/images/logo.png', // Use local static logo
     favicon: '/images/favicon.ico'
   }
 };

@@ -46,15 +46,34 @@ export const sanitizeImageUrl = (url, fallbackUrl = '/images/img-placeholder.jpg
   // Validate URL structure for external URLs
   if (cleanUrl.startsWith('http')) {
     try {
-      const urlObj = new URL(cleanUrl);
-      // Check for suspicious hostnames
-      if (urlObj.hostname.includes('undefined') || urlObj.hostname.includes('null')) {
-        console.warn(`Invalid hostname in URL: ${cleanUrl}`);
-        return fallbackUrl;
+      // Server-safe URL validation
+      if (typeof window !== 'undefined') {
+        // Client-side: use full URL constructor
+        const urlObj = new URL(cleanUrl);
+        // Check for suspicious hostnames
+        if (urlObj.hostname.includes('undefined') || urlObj.hostname.includes('null')) {
+          console.warn(`Invalid hostname in URL: ${cleanUrl}`);
+          return fallbackUrl;
+        }
+        return cleanUrl;
+      } else {
+        // Server-side: basic validation without URL constructor
+        if (cleanUrl.includes('undefined') || cleanUrl.includes('null')) {
+          console.warn(`Invalid content in URL: ${cleanUrl}`);
+          return fallbackUrl;
+        }
+        
+        // Basic server-side URL validation
+        const urlRegex = /^https?:\/\/[^\s/$.?#].[^\s]*$/i;
+        if (!urlRegex.test(cleanUrl)) {
+          console.warn(`Invalid URL format: ${cleanUrl}`);
+          return fallbackUrl;
+        }
+        
+        return cleanUrl;
       }
-      return cleanUrl;
     } catch (error) {
-      console.warn(`Invalid URL structure: ${cleanUrl}`, error.message);
+      console.warn(`URL validation failed: ${cleanUrl}`, error.message);
       return fallbackUrl;
     }
   }

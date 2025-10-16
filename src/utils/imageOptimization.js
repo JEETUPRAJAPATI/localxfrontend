@@ -1,11 +1,12 @@
 /**
  * Image Optimization Utilities
  * Handles image loading, caching, and performance optimization
+ * Server-safe implementation
  */
 
-// Image cache to prevent duplicate requests
-const imageCache = new Map();
-const failedImages = new Set();
+// Image cache to prevent duplicate requests (server-safe)
+const imageCache = typeof Map !== 'undefined' ? new Map() : {};
+const failedImages = typeof Set !== 'undefined' ? new Set() : {};
 
 /**
  * Preload critical images to improve performance
@@ -15,9 +16,27 @@ const failedImages = new Set();
 export const preloadImages = (imageUrls, options = {}) => {
   const { timeout = 10000 } = options;
   
+  // Server-side: Just resolve immediately
+  if (typeof window === 'undefined') {
+    return Promise.allSettled(
+      imageUrls.map(url => {
+        if (typeof Map !== 'undefined') {
+          imageCache.set(url, true);
+        } else {
+          imageCache[url] = true;
+        }
+        return Promise.resolve(url);
+      })
+    );
+  }
+  
+  // Client-side: Actually test image loading
   return Promise.allSettled(
     imageUrls.map(url => {
-      if (imageCache.has(url) || failedImages.has(url)) {
+      const isCached = typeof Map !== 'undefined' ? imageCache.has(url) : imageCache[url];
+      const hasFailed = typeof Set !== 'undefined' ? failedImages.has(url) : failedImages[url];
+      
+      if (isCached || hasFailed) {
         return Promise.resolve(url);
       }
       
@@ -26,19 +45,31 @@ export const preloadImages = (imageUrls, options = {}) => {
         const timeoutId = setTimeout(() => {
           img.onload = null;
           img.onerror = null;
-          failedImages.add(url);
+          if (typeof Set !== 'undefined') {
+            failedImages.add(url);
+          } else {
+            failedImages[url] = true;
+          }
           reject(new Error(`Image preload timeout: ${url}`));
         }, timeout);
         
         img.onload = () => {
           clearTimeout(timeoutId);
-          imageCache.set(url, true);
+          if (typeof Map !== 'undefined') {
+            imageCache.set(url, true);
+          } else {
+            imageCache[url] = true;
+          }
           resolve(url);
         };
         
         img.onerror = () => {
           clearTimeout(timeoutId);
-          failedImages.add(url);
+          if (typeof Set !== 'undefined') {
+            failedImages.add(url);
+          } else {
+            failedImages[url] = true;
+          }
           reject(new Error(`Image preload failed: ${url}`));
         };
         
@@ -54,10 +85,13 @@ export const preloadImages = (imageUrls, options = {}) => {
  * @returns {Object} Cache status
  */
 export const getImageCacheStatus = (url) => {
+  const isCached = typeof Map !== 'undefined' ? imageCache.has(url) : imageCache[url];
+  const hasFailed = typeof Set !== 'undefined' ? failedImages.has(url) : failedImages[url];
+  
   return {
-    isCached: imageCache.has(url),
-    hasFailed: failedImages.has(url),
-    shouldLoad: !imageCache.has(url) && !failedImages.has(url)
+    isCached: !!isCached,
+    hasFailed: !!hasFailed,
+    shouldLoad: !isCached && !hasFailed
   };
 };
 
@@ -130,8 +164,13 @@ export const generateResponsiveSizes = (breakpoints = {}) => {
  * Clear image cache (useful for memory management)
  */
 export const clearImageCache = () => {
-  imageCache.clear();
-  failedImages.clear();
+  if (typeof Map !== 'undefined') {
+    imageCache.clear();
+    failedImages.clear();
+  } else {
+    Object.keys(imageCache).forEach(key => delete imageCache[key]);
+    Object.keys(failedImages).forEach(key => delete failedImages[key]);
+  }
   console.log('Image cache cleared');
 };
 
@@ -140,10 +179,13 @@ export const clearImageCache = () => {
  * @returns {Object} Cache statistics
  */
 export const getCacheStats = () => {
+  const cachedCount = typeof Map !== 'undefined' ? imageCache.size : Object.keys(imageCache).length;
+  const failedCount = typeof Set !== 'undefined' ? failedImages.size : Object.keys(failedImages).length;
+  
   return {
-    cachedImages: imageCache.size,
-    failedImages: failedImages.size,
-    totalTracked: imageCache.size + failedImages.size
+    cachedImages: cachedCount,
+    failedImages: failedCount,
+    totalTracked: cachedCount + failedCount
   };
 };
 

@@ -8,12 +8,10 @@ class MyDocument extends Document {
           {/* Character Set & Viewport */}
           <meta charSet="utf-8" />
 
-          {/* Favicon (Modern Approach) */}
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
-          <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />
-          <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png" />
+          {/* Favicon (Use existing favicon.ico) */}
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="apple-touch-icon" href="/favicon.ico" />
           <link rel="manifest" href="/site.webmanifest" />
-          <link rel="mask-icon" href="/favicon.svg" color="#5bbad5" />
 
           {/* Resource Hints for API */}
           <link rel="dns-prefetch" href="https://api.localxlist.net" />

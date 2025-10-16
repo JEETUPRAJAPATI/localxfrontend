@@ -1,7 +1,7 @@
 // API Route: /api/v1/home/sponsers
 // This proxies requests to the external API server
 
-import { getSponsersData } from '../../../../api/apiService.server';
+import { getHomeSponsersAPI } from '../../../../api/apiService.server';
 
 export default async function handler(req, res) {
   try {
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     }
 
     // Get sponsers data from external API
-    const sponsersData = await getSponsersData();
+    const sponsersData = await getHomeSponsersAPI();
     
     // Apply responsive filtering based on deviceWidth
     let processedData = sponsersData;

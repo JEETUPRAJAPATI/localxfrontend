@@ -1,7 +1,7 @@
 // API Route: /api/v1/home/countries
 // This provides country data (different from countriesV2)
 
-import { getCountriesData } from '../../../../api/apiService.server';
+import { getHomeCountriesAPI } from '../../../../api/apiService.server';
 
 export default async function handler(req, res) {
   try {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
 
     // Get countries data from external API
-    const countriesData = await getCountriesData();
+    const countriesData = await getHomeCountriesAPI();
     
     console.log('✅ API Success: GET /api/v1/home/countries - Status: 200');
     console.log('📊 Countries Data:', typeof countriesData, '- Items:', countriesData?.list?.length || 0);

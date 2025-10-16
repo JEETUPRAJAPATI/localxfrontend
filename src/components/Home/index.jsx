@@ -121,20 +121,23 @@ const CountriesDir = memo(
     handleCountryToggle,
     handleCityToggle,
   }) => {
+    // Use countries_DATA (which is actually finalCountriesData passed from parent)
+    const finalCountriesData = countries_DATA;
+    
     // Temporarily disable viewport rendering to fix hydration issues
     // const { visibleItems, containerRef } = useViewportRendering(countries_DATA || [], {
     //   initialRender: 3,
     //   batchSize: 5,
     // });
 
-    if (!countries_DATA || countries_DATA.length === 0) {
+    if (!Array.isArray(finalCountriesData) || finalCountriesData.length === 0) {
       return <div className="empty-countries">No countries data available</div>;
     }
 
     return (
       <div className="countries-container">
         <Accordion activeKey={defaultCountryActiveKeys} alwaysOpen>
-          {countries_DATA.map((countryData) => (
+          {finalCountriesData.map((countryData) => (
           <Card key={`${countryData.id}`}>
             <CardHeaderToggle
               defaultActiveKeys={defaultCountryActiveKeys}
@@ -146,7 +149,7 @@ const CountriesDir = memo(
             </CardHeaderToggle>
             <Accordion.Collapse eventKey={`${countryData.id}`}>
               <Card.Body className="cities-container">
-                {countryData.cities.map((cityData) => (
+                {Array.isArray(countryData.cities) && countryData.cities.map((cityData) => (
                   <div className="city-card" key={`${cityData.id}`}>
                     <Accordion activeKey={defaultCityActiveKeys}>
                       <Card>
@@ -161,7 +164,7 @@ const CountriesDir = memo(
                         <Accordion.Collapse eventKey={`${cityData.id}`}>
                           <Card.Body>
                             <ListGroup>
-                              {cityData.subcities.map((suburb) => (
+                              {Array.isArray(cityData.subcities) && cityData.subcities.map((suburb) => (
                                 <ListGroup.Item key={suburb.id}>
                                   <Link
                                     href={`/s/${slugify(
@@ -226,7 +229,7 @@ const Home = ({ initialData = null }) => {
     return [];
   };
   
-  const finalCountriesData = countries_DATA?.length > 0 
+  const finalCountriesData = Array.isArray(countries_DATA) && countries_DATA.length > 0 
     ? countries_DATA 
     : getCountriesArray(initialData?.countries);
   const finalDashboardContent = dashboardContent_DATA || initialData?.dashboardContent || "";
@@ -265,16 +268,19 @@ const Home = ({ initialData = null }) => {
           );
 
           if (isMobile) {
-            // Collapse all cities under the speicific country
-            const cityKeys = countries_DATA
-              .find((country) => country.id == key)
-              ?.cities.map((city) => `${city.id}`);
+            // Collapse all cities under the specific country
+            const foundCountry = Array.isArray(finalCountriesData) 
+              ? finalCountriesData.find((country) => country.id == key)
+              : null;
+            const cityKeys = foundCountry && Array.isArray(foundCountry.cities)
+              ? foundCountry.cities.map((city) => `${city.id}`)
+              : [];
             // Remove city keys from the active cities keys
             setDefaultCityActiveKeys(
               (prevCityKeys) =>
-                prevCityKeys.filter(
-                  (activeKey) => !cityKeys?.includes(activeKey)
-                ) || []
+                Array.isArray(prevCityKeys) 
+                  ? prevCityKeys.filter((activeKey) => !cityKeys.includes(activeKey))
+                  : []
             );
           }
 
@@ -366,12 +372,16 @@ const Home = ({ initialData = null }) => {
       const shouldExpandAll = width > 1024; // More explicit than isDesktop
       
       setDefaultCountryActiveKeys(
-        shouldExpandAll ? finalCountriesData.map((country) => `${country.id}`) : []
+        shouldExpandAll && Array.isArray(finalCountriesData) 
+          ? finalCountriesData.map((country) => `${country.id}`) 
+          : []
       );
       setDefaultCityActiveKeys(
-        shouldExpandAll
+        shouldExpandAll && Array.isArray(finalCountriesData)
           ? finalCountriesData.flatMap((country) =>
-              country.cities.map((city) => `${city.id}`)
+              Array.isArray(country.cities) 
+                ? country.cities.map((city) => `${city.id}`)
+                : []
             )
           : []
       );

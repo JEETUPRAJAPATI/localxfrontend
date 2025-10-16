@@ -63,16 +63,19 @@ const HomeCountriesDir = memo(() => {
           );
 
           if (isMobile) {
-            // Collapse all cities under the speicific country
-            const cityKeys = countries_DATA
-              .find((country) => country.id == key)
-              ?.cities.map((city) => `${city.id}`);
+            // Collapse all cities under the specific country
+            const foundCountry = Array.isArray(countries_DATA) 
+              ? countries_DATA.find((country) => country.id == key)
+              : null;
+            const cityKeys = foundCountry && Array.isArray(foundCountry.cities)
+              ? foundCountry.cities.map((city) => `${city.id}`)
+              : [];
             // Remove city keys from the active cities keys
             setDefaultCityActiveKeys(
               (prevCityKeys) =>
-                prevCityKeys.filter(
-                  (activeKey) => !cityKeys?.includes(activeKey)
-                ) || []
+                Array.isArray(prevCityKeys) 
+                  ? prevCityKeys.filter((activeKey) => !cityKeys.includes(activeKey))
+                  : []
             );
           }
 

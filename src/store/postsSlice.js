@@ -6,6 +6,13 @@ const postsSlice = createSlice({
   reducers: {
     setPostsProps: (state, action) => {
       const { key, data } = action.payload;
+      
+      // Validate key before processing
+      if (!key || typeof key !== 'string') {
+        console.warn('Invalid key provided to setPostsProps:', key);
+        return;
+      }
+      
       // Split the key by '.' to handle nested properties
       const keys = key.split('.');
       let current = state;

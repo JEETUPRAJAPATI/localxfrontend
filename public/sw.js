@@ -10,7 +10,7 @@ const STATIC_ASSETS = [
   '/offline.html',
   '/_next/static/css/',
   '/_next/static/js/',
-  '/images/logo.webp',
+  '/images/logo.png', // Use local static logo
   '/images/favicon.ico',
   '/manifest.json'
 ];

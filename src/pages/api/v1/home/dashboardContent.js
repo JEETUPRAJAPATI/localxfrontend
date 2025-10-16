@@ -1,7 +1,7 @@
 // API Route: /api/v1/home/dashboardContent
 // This proxies requests to the external API server
 
-import { getDashboardContentData } from '../../../../api/apiService.server';
+import { getHomeDashboardContentAPI } from '../../../../api/apiService.server';
 
 export default async function handler(req, res) {
   try {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
 
     // Get dashboard content data from external API
-    const dashboardContentData = await getDashboardContentData();
+    const dashboardContentData = await getHomeDashboardContentAPI();
     
     console.log('✅ API Success: GET /api/v1/home/dashboardContent - Status: 200');
     console.log('📊 Dashboard Content Data:', typeof dashboardContentData, '- Length:', dashboardContentData?.length || 0);

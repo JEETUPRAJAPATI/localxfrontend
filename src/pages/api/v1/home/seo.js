@@ -1,7 +1,7 @@
 // API Route: /api/v1/home/seo
 // This proxies requests to the external API server
 
-import { getSeoData } from '../../../../api/apiService.server';
+import { getHomeSEOAPI } from '../../../../api/apiService.server';
 
 export default async function handler(req, res) {
   try {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
 
     // Get SEO data from external API
-    const seoData = await getSeoData();
+    const seoData = await getHomeSEOAPI();
     
     console.log('✅ API Success: GET /api/v1/home/seo - Status: 200');
     console.log('📊 SEO Data:', typeof seoData, '- Has title:', !!seoData?.title);
@@ -34,11 +34,11 @@ export default async function handler(req, res) {
       robots: 'index, follow',
       ogTitle: 'Find Escorts Near you Online | Localxlist',
       ogDescription: 'Localxlist is a free platform to find female and male escorts near you.',
-      ogImage: '/images/logo.webp',
+      ogImage: '/images/logo.png', // Use local static logo
       ogSiteName: 'localxlist',
       ogType: 'website',
       ogUrl: 'https://localxlist.net',
-      image: '/images/logo.webp',
+      image: '/images/logo.png', // Use local static logo
       favicon: '/images/favicon.ico',
       author: 'Localxlist.net'
     };

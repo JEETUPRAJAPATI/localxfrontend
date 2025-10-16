@@ -47,7 +47,7 @@ function MyApp({ Component, ...rest }) {
       // Preload critical resources - defer to avoid blocking
       setTimeout(() => {
         const preloadLinks = [
-          '/images/logo.webp',
+          '/images/logo.png', // Use local static logo
           '/images/favicon.ico'
         ];
         
